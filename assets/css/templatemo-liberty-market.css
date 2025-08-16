@@ -815,7 +815,7 @@ Categories & Collections Style
 */
 
 .categories-collections {
-  background-image: url(../images/General/dark-bg.png);
+  background-image: url(../images/General/HonMoon-BG.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1097,7 +1097,7 @@ Currently Market Style
 */
 
 .currently-market {
-  background-image: url(../images/dark-bg.jpg);
+  background-image: url(../images/HonMoon-BG.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1270,7 +1270,7 @@ Page Heading Style
 }
 
 .page-heading {
-  background-image: url(../images/General/Heading-bg.png);
+  background-image: url(../images/General/HonMoon-heading-BG.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1425,11 +1425,11 @@ Explore Style
 }
 
 .discover-items {
-  background-image: url(../images/General/dark-bg.png);
+  background-image: url(../images/General/HonMoon-BG.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  padding: 400px 0px 120px 0px;
+  padding: 120px 0px 120px 0px;
   position: relative;
 }
 
@@ -1580,7 +1580,7 @@ Explore Style
 }
 
 .top-seller {
-  background-image: url(../images/General/Heading-bg.png);
+  background-image: url(../images/General/HonMoon-heading-BG.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1630,7 +1630,7 @@ Details Page Style
 */
 
 .item-details-page {
-  background-image: url(../images/General/dark-bg.png);
+  background-image: url(../images/General/HonMoon-BG.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1866,12 +1866,13 @@ Author Page Style
 */
 
 .author-page {
-  background-image: url(../images/General/dark-bg.png);
+  background-image: url(../images/General/HonMoon-BG-author-page.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  padding: 120px 0px 120px 0px;
+  padding: 120px 0px 0px 0px;
   position: relative;
+  min-height: 100vh;
 }
 
 .author-page .author {
@@ -2134,50 +2135,6 @@ body {
 @media (max-width: 1200px) {
   
 }
-
-/*div image
-.div-img{
-    justify-content: center;
-    align-items: center;
-    display:flex;
-    flex-wrap: wrap; /* Ensures proper wrapping on smaller screens
-}
-
-.div-img .img-container {
-    position: relative;
-    overflow: hidden;
-    margin: 10px 0;
-}
-
-.div-img img {
-    width: 100%;
-    transition: transform 0.3s ease-in-out;
-    display: block;
-}
-
-.div-img .caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.6); /* dark semi-transparent background
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px; /* Rounded corners for the caption box
-    opacity: 0;
-    transform: translateY(100%);
-    transition: all 0.3s ease-in-out;
-}
-
-.div-img .img-container:hover img {
-    transform: scale(1.2);
-}
-
-.div-img .img-container:hover .caption {
-    opacity: 1;
-    transform: translateY(0);
-}*/
 
 .div-img {
   display: flex;
