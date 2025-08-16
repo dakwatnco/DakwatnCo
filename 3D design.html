@@ -48,6 +48,83 @@ https://templatemo.com/tm-577-liberty-market
       width: 100%;
       height: 100%;
     }
+
+      /* Put this inside your <style> tag or in your CSS file */
+    .item-details-page img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .item-details-page img:hover {
+      transform: scale(1.15); /* Makes it slightly bigger */
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Adds a soft shadow */
+      z-index: 2;
+    }
+
+    /*for top project*/
+    .top-projects {
+      /*padding: 50px 0;*/
+      /*background-color: #000; same as your screenshot */
+      color: #fff;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 30px;
+    }
+
+    .section-title span {
+      display: block;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .project-info {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      background: rgba(0,0,0,0.5);
+      padding: 10px 15px;
+      border-radius: 10px;
+    }
+
+    .project-info h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .project-info p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .section-heading {
+      margin-bottom: 50px;
+    }
+
   </style>
   
   </head>
@@ -115,35 +192,75 @@ https://templatemo.com/tm-577-liberty-market
   <div class="item-details-page">
     <div class="container">
 
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="section-heading" id="here">
-            <div class="line-dec"></div>
-            <h2><em>Interior Rendering</em></h2>
+      <!--Top Project-->
+
+        <div class="container">
+          <h2 class="section-title">TOP <span>PROJECTS</h2>
+          <div class="projects-grid">
+            <div class="project-card">
+              <a href="#">
+              <img src="assets/images/3D design/IR1.webp" alt="Winter Land">
+              <div class="project-info">
+                <h3>ARCHITECTURE</h3>
+              </div>
+              </a>
+            </div>
+            <div class="project-card">
+              <a href="#mosque interior">
+              <img src="assets/images/3D design/IR MASJID 1.webp" alt="Spring Field">
+              <div class="project-info">
+                <h3>MASJID INTERIOR</h3>
+              </div>
+              </a>
+            </div>
+            <div class="project-card">
+              <a href="#interior">
+              <img src="assets/images/3D design/IR7.webp" alt="Spring Field">
+              <div class="project-info">
+                <h3>INTERIOR</h3>
+              </div>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 col-12">
-          <a href="assets/images/3D design/IR1.webp" data-lightbox="3d-gallery">
-            <img src="assets/images/3D design/IR1.webp" class="img-fluid">
-          </a>
+
+        <!--Mosque interior 1-->
+
+        <div class="row" style="padding-top: 35px;" id="mosque interior">
+          <div class="col-lg-12">
+            <div class="section-heading" >
+              <div class="line-dec"></div>
+              <h2><em>Mosque Interior</em></h2>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-4 col-12">
-          <a href="assets/images/3D design/IR3.webp" data-lightbox="3d-gallery">
-            <img src="assets/images/3D design/IR3.webp" class="img-fluid">
-          </a>
+
+        <div class="container">
+          <div class="row">
+            <div class="projects-grid">
+              <div class="project-card">
+                <a href="assets/images/3D design/IR MASJID 1.webp" data-lightbox="3d-gallery">
+                <img src="assets/images/3D design/IR MASJID 1.webp" alt="Winter Land">
+                </a>
+              </div>
+              <div class="project-card">
+                <a href="assets/images/3D design/IR MASJID 2.webp" data-lightbox="3d-gallery">
+                <img src="assets/images/3D design/IR MASJID 2.webp" alt="Spring Field">
+                </a>
+              </div>
+              <div class="project-card">
+                <a href="assets/images/3D design/IR MASJID 3.webp" data-lightbox="3d-gallery">
+                <img src="assets/images/3D design/IR MASJID 3.webp" alt="Spring Field">
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-4 col-12">
-          <a href="assets/images/3D design/IR4.webp" data-lightbox="3d-gallery">
-            <img src="assets/images/3D design/IR4.webp" class="img-fluid">
-          </a>
-        </div>
-      </div>
+  
 
       <div class="row">
         <div class="col-lg-12">
-          <div class="section-heading" id="here">
+          <div class="section-heading">
             <div class="video-container">
               <iframe src="https://www.youtube.com/embed/BsZEunLGzwg?autoplay=1&controls=0&mute=1&loop=1&playlist=BsZEunLGzwg" 
                 title="YouTube video player" 
@@ -156,48 +273,71 @@ https://templatemo.com/tm-577-liberty-market
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-lg-3 col-12">
-          <a href="assets/images/3D design/IR5.webp" data-lightbox="3d-gallery">
-            <img src="assets/images/3D design/IR5.webp" class="img-fluid">
-          </a>
+        <div class="row"  id="interior">
+          <div class="col-lg-12">
+            <div class="section-heading">
+              <div class="line-dec"></div>
+              <h2><em>Interior</em></h2>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-3 col-12">
-          <a href="assets/images/3D design/IR6.webp" data-lightbox="3d-gallery">
-            <img src="assets/images/3D design/IR6.webp" class="img-fluid">
-          </a>
+
+        <!--Interior-->
+
+        <div class="container">
+          <div class="row">
+            <div class="projects-grid">
+              <div class="project-card">
+                <a href="assets/images/3D design/IR1.webp" data-lightbox="3d-gallery">
+                <img src="assets/images/3D design/IR1.webp" alt="Winter Land">
+                </a>
+              </div>
+              <div class="project-card">
+                <a href="assets/images/3D design/IR3.webp" data-lightbox="3d-gallery">
+                <img src="assets/images/3D design/IR3.webp" alt="Spring Field">
+                </a>
+              </div>
+              <div class="project-card">
+                <a href="assets/images/3D design/IR4.webp" data-lightbox="3d-gallery">
+                <img src="assets/images/3D design/IR4.webp" alt="Spring Field">
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!--Interior Row 2-->
+          
+          <div class="row" style="padding-top: 20px;">
+            <div class="projects-grid">
+              <div class="project-card">
+                <a href="assets/images/3D design/IR5.webp" data-lightbox="3d-gallery">
+                <img src="assets/images/3D design/IR5.webp" alt="Winter Land">
+                </a>
+              </div>
+              <div class="project-card">
+                <a href="assets/images/3D design/IR6.webp" data-lightbox="3d-gallery">
+                <img src="assets/images/3D design/IR6.webp" alt="Winter Land">
+                </a>
+              </div>
+              <div class="project-card">
+                <a href="assets/images/3D design/IR7.webp" data-lightbox="3d-gallery">
+                <img src="assets/images/3D design/IR7.webp" alt="Winter Land">
+                </a>
+              </div>
+              <div class="project-card">
+                <a href="assets/images/3D design/IR8.webp" data-lightbox="3d-gallery">
+                <img src="assets/images/3D design/IR8.webp" alt="Winter Land">
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-3 col-12">
-          <a href="assets/images/3D design/IR7.webp" data-lightbox="3d-gallery">
-            <img src="assets/images/3D design/IR7.webp" class="img-fluid">
-          </a>
-        </div>
-        <div class="col-lg-3 col-12">
-          <a href="assets/images/3D design/IR8.webp" data-lightbox="3d-gallery">
-            <img src="assets/images/3D design/IR8.webp" class="img-fluid">
-          </a>
-        </div>
-      </div>
-      <div class="row" style="padding-top: 12px;">
-        <div class="col-lg-4 col-12">
-          <a href="assets/images/3D design/IR MASJID 1.webp" data-lightbox="3d-gallery">
-            <img src="assets/images/3D design/IR MASJID 1.webp" class="img-fluid">
-          </a>
-        </div>
-        <div class="col-lg-4 col-12">
-          <a href="assets/images/3D design/IR MASJID 2.webp" data-lightbox="3d-gallery">
-            <img src="assets/images/3D design/IR MASJID 2.webp" class="img-fluid">
-          </a>
-        </div>
-        <div class="col-lg-4 col-12">
-          <a href="assets/images/3D design/IR MASJID 3.webp" data-lightbox="3d-gallery">
-            <img src="assets/images/3D design/IR MASJID 3.webp" class="img-fluid">
-          </a>
-        </div>
-      </div>
 
     </div>
   </div>
+
+  
+
 
   <footer>
     <div class="container">
