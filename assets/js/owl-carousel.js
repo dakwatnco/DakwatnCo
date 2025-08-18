@@ -3445,4 +3445,21 @@
 		$.support.transform3d = tests.csstransforms3d();
 	}
 
+
 })(window.Zepto || window.jQuery, window, document);
+
+/*ADD ANIMATION FADE IN */
+document.addEventListener("DOMContentLoaded", function() {
+  const faders = document.querySelectorAll('.fade-in-section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  faders.forEach(fader => {
+    observer.observe(fader);
+  });
+});
