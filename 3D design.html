@@ -61,6 +61,12 @@ https://templatemo.com/tm-577-liberty-market
       z-index: 2;
     }
 
+    .item-details-page #main img:hover {
+      transform: scale(1.00); /* Makes it slightly bigger */
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Adds a soft shadow */
+      z-index: 2;
+    }
+
     /*for top project*/
     .top-projects {
       /*padding: 50px 0;*/
@@ -124,6 +130,64 @@ https://templatemo.com/tm-577-liberty-market
     .section-heading {
       margin-bottom: 50px;
     }
+
+    /*HEADING*/
+    /* Container */
+    .top-hero {
+      position: relative;
+      margin: 40px 0;
+      overflow: hidden; /* ensures nothing spills out */
+    }
+
+    /* Stack wrapper */
+    .top-hero__stack {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Big background title */
+    .top-hero__title {
+      position: absolute;
+      top: 50%; /* middle vertically */
+      left: 0;  /* stick to the left border */
+      transform: translateY(-50%); /* keep centered vertically */
+      font-size: clamp(48px, 10vw, 140px); /* responsive size */
+      font-weight: 900;
+      color: #ffffff;
+      opacity: 0.15; /* make it look like background text */
+      z-index: 1; /* behind image */
+      white-space: nowrap;
+      text-transform: uppercase;
+
+      /* extra styling for readability */
+      -webkit-text-stroke: 1px rgba(0,0,0,0.3);
+      text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    /* Image on top */
+    .top-hero__image {
+      position: relative;
+      z-index: 2;
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px; /* optional */
+    }
+
+    /* Fade-in + move up animation */
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+      will-change: opacity, transform;
+    }
+
+    .fade-in-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
 
   </style>
   
@@ -190,17 +254,26 @@ https://templatemo.com/tm-577-liberty-market
     </div>
   </div>
 
+  
+
   <div class="item-details-page">
     <div class="container">
 
-      <!--Top Project-->
+      <div class="top-hero fade-in-section">
+        <div>
+          <h1 style="z-index: -1;"><em>DIFFERENT ARCHITECTURE</em></h1>
+            <div style="z-index: 5;">
+            <img src="assets/images/3D design/3D main Image.webp">
+            </div>
+        </div>
+      </div>
 
-        <div class="container">
-          <h2 class="section-title">TOP <span>PROJECTS</h2>
+      <div class="container">
+        <div class="fade-in-section">
           <div class="projects-grid">
             <div class="project-card">
               <a href="#architecture">
-              <img src="assets/images/3D design/IR1.webp" alt="Winter Land">
+              <img src="assets/images/3D design/Architect 1.webp" alt="architect">
               <div class="project-info">
                 <h3>ARCHITECTURE</h3>
               </div>
@@ -208,7 +281,7 @@ https://templatemo.com/tm-577-liberty-market
             </div>
             <div class="project-card">
               <a href="#mosque interior">
-              <img src="assets/images/3D design/IR MASJID 1.webp" alt="Spring Field">
+              <img src="assets/images/3D design/IR MASJID 1.webp" alt="mosque">
               <div class="project-info">
                 <h3>MASJID INTERIOR</h3>
               </div>
@@ -216,7 +289,7 @@ https://templatemo.com/tm-577-liberty-market
             </div>
             <div class="project-card">
               <a href="#interior">
-              <img src="assets/images/3D design/IR7.webp" alt="Spring Field">
+              <img src="assets/images/3D design/IR7.webp" alt="interior">
               <div class="project-info">
                 <h3>INTERIOR</h3>
               </div>
@@ -224,42 +297,39 @@ https://templatemo.com/tm-577-liberty-market
             </div>
           </div>
         </div>
+      </div>
 
       <!--Architecture-->
 
-        <div class="row" style="padding-top: 35px;" id="architecture">
-          <div class="col-lg-12">
-            <div class="section-heading" >
-              <div class="line-dec"></div>
-              <h2><em>Architecture</em></h2>
-            </div>
+      <div class="row fade-in-section" style="padding-top: 35px;" id="architecture">
+        <div class="col-lg-12">
+          <div class="section-heading" >
+            <div class="line-dec"></div>
+            <h2><em>Architecture</em></h2>
           </div>
         </div>
+      </div>
 
+      <div class="fade-in-section">
         <div class="container">
           <div class="row">
             <div class="projects-grid">
               <div class="project-card">
-                <a href="assets/images/3D design/Architect 1.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/Architect 1.webp" alt="Winter Land">
-                </a>
+                <img src="assets/images/3D design/Architect 1.webp" alt="Architecture">
               </div>
               <div class="project-card">
-                <a href="assets/images/3D design/Architect 2.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/Architect 2.webp" alt="Spring Field">
-                </a>
+                <img src="assets/images/3D design/Architect 2.webp" alt="Architecture">
               </div>
               <div class="project-card">
-                <a href="assets/images/3D design/Architect 3.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/Architect 3.webp" alt="Spring Field">
-                </a>
+                <img src="assets/images/3D design/Architect 3.webp" alt="Architecture">
               </div>
             </div>
           </div>
         </div>
+      </div>
 
         <!--Mosque interior 1-->
-
+      <div class="fade-in-section">
         <div class="row" style="padding-top: 35px;" id="mosque interior">
           <div class="col-lg-12">
             <div class="section-heading" >
@@ -268,45 +338,44 @@ https://templatemo.com/tm-577-liberty-market
             </div>
           </div>
         </div>
+      </div>
 
+      <div class="fade-in-section">
         <div class="container">
           <div class="row">
             <div class="projects-grid">
               <div class="project-card">
-                <a href="assets/images/3D design/IR MASJID 1.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR MASJID 1.webp" alt="Winter Land">
-                </a>
+                <img src="assets/images/3D design/IR MASJID 1.webp" alt="mosque">
               </div>
               <div class="project-card">
-                <a href="assets/images/3D design/IR MASJID 2.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR MASJID 2.webp" alt="Spring Field">
-                </a>
+                <img src="assets/images/3D design/IR MASJID 2.webp" alt="mosque">
               </div>
               <div class="project-card">
-                <a href="assets/images/3D design/IR MASJID 3.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR MASJID 3.webp" alt="Spring Field">
-                </a>
+                <img src="assets/images/3D design/IR MASJID 3.webp" alt="mosque">
               </div>
-            </div>
-          </div>
-        </div>
-  
-
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="section-heading">
-            <div class="video-container">
-              <iframe src="https://www.youtube.com/embed/KtC4aAw_5hM?si=igXHygZ2G0VVX7Kb&amp;controls=0&autoplay=1&mute=1&loop=1"
-                title="YouTube video player" 
-                frameborder="0" 
-                allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-              </iframe>
             </div>
           </div>
         </div>
       </div>
 
+      <div class="fade-in-section">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="section-heading">
+              <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/KtC4aAw_5hM?si=igXHygZ2G0VVX7Kb&amp;controls=0&autoplay=1&mute=1&loop=1"
+                  title="YouTube video player" 
+                  frameborder="0" 
+                  allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-in-section">
         <div class="row"  id="interior">
           <div class="col-lg-12">
             <div class="section-heading">
@@ -315,26 +384,21 @@ https://templatemo.com/tm-577-liberty-market
             </div>
           </div>
         </div>
+      </div>
 
         <!--Interior-->
-
+      
         <div class="container">
           <div class="row">
             <div class="projects-grid">
               <div class="project-card">
-                <a href="assets/images/3D design/IR1.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR1.webp" alt="Winter Land">
-                </a>
+                <img src="assets/images/3D design/IR1.webp" alt="interior">
               </div>
               <div class="project-card">
-                <a href="assets/images/3D design/IR3.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR3.webp" alt="Spring Field">
-                </a>
+                <img src="assets/images/3D design/IR3.webp" alt="interior">
               </div>
               <div class="project-card">
-                <a href="assets/images/3D design/IR4.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR4.webp" alt="Spring Field">
-                </a>
+                <img src="assets/images/3D design/IR4.webp" alt="interior">
               </div>
             </div>
           </div>
@@ -344,24 +408,16 @@ https://templatemo.com/tm-577-liberty-market
           <div class="row" style="padding-top: 20px;">
             <div class="projects-grid">
               <div class="project-card">
-                <a href="assets/images/3D design/IR5.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR5.webp" alt="Winter Land">
-                </a>
+                <img src="assets/images/3D design/IR5.webp" alt="interior">
               </div>
               <div class="project-card">
-                <a href="assets/images/3D design/IR6.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR6.webp" alt="Winter Land">
-                </a>
+                <img src="assets/images/3D design/IR6.webp" alt="interior">
               </div>
               <div class="project-card">
-                <a href="assets/images/3D design/IR7.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR7.webp" alt="Winter Land">
-                </a>
+                <img src="assets/images/3D design/IR7.webp" alt="interior">
               </div>
               <div class="project-card">
-                <a href="assets/images/3D design/IR8.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR8.webp" alt="Winter Land">
-                </a>
+                <img src="assets/images/3D design/IR8.webp" alt="interior">
               </div>
             </div>
           </div>
@@ -397,9 +453,28 @@ https://templatemo.com/tm-577-liberty-market
 
   <!-- Lightbox JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+  <!--HEADING-->
+  <script>
+    const faders = document.querySelectorAll('.fade-in-section');
+
+    const appearOptions = {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+
   </body>
 </html>
-
-
-
-
