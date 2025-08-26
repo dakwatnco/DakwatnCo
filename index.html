@@ -22,34 +22,207 @@
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
-
-TemplateMo 577 Liberty Market
-
-https://templatemo.com/tm-577-liberty-market
-
--->
 
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
   <style>
-    @font-face {
-    font-family: 'MyCustomFont';
-    src: url('assets/webfonts/BeautyDemo.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+
+    .section-heading h1 em {
+      color: #dbd4b3da;
+      font-style: normal;
     }
-    .fontbeauty{
-      font-family: 'MyCustomFont', sans-serif; /* fallback included */
-    }
+
     model-viewer {
       width: 100%;
       height: 500px;
     }
+    .create-nft h5{
+      margin-bottom: 15px;
+      color: black;
+    }
+    .create-nft p {
+      color: black;
+    }
+    .create-nft a {
+      color: #1e1e1e;
+      display: block; /* Makes the link behave like a block element */
+      margin-bottom: 8px;
+    }
+    .create-nft a:hover{
+      color: #84816dfe;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .whatsapp-float img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+    }
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.carousel-slide {
+  flex: 0 0 350px; /* fixed width per slide */
+  margin: 0 15px;
+  position: relative;
+  transition: transform 0.6s ease, z-index 0.6s ease;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.carousel-slide img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+
+}
+
+.carousel-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  border-radius: 16px;
+  transition: opacity 0.6s ease;
+  opacity: 1;
+  z-index: 0; /* <--- make sure it stays at the bottom */
+  pointer-events: none; /* <--- don't block clicks */
+}
+
+/* Focused slide */
+.carousel-slide.focused {
+  transform: scale(1.0);
+  z-index: 3;
+}
+.carousel-slide.focused::after {
+  opacity: 0;
+}
+
+/* Side slides */
+.carousel-slide.side {
+  transform: scale(0.9);
+  z-index: 2;
+}
+
+/* Far slides */
+.carousel-slide.far {
+  transform: scale(0.75);
+  z-index: 1;
+}
+
+/* Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+.carousel-btn.prev { left: 20px; }
+.carousel-btn.next { right: 20px; }
+
+/* Ensure the clickable link + hover overlay is above */
+.slide-link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  z-index: 1; /* <--- above ::after */
+}
+.slide-link img {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.slide-link .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease;
+  border-radius: 12px;
+  z-index: 2; /* <--- above image */
+  pointer-events: none; /* overlay won’t block clicking */
+}
+
+.slide-link .overlay span {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+/* Hover (desktop) */
+.slide-link:hover img {
+  transform: scale(1.05);
+}
+.slide-link:hover .overlay {
+  opacity: 1;
+}
+.slide-link:hover .overlay span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile (simulate click with :active) */
+.slide-link:active .overlay {
+  opacity: 1;
+}
+.slide-link:active .overlay span {
+  opacity: 1;
+  transform: translateY(0);
+}
 
   </style>
-
-
   </head>
 
 <body>
@@ -100,22 +273,15 @@ https://templatemo.com/tm-577-liberty-market
   <!-- ***** Main Banner Area Start ***** -->
   <div class="main-banner">
     <div class="container">
-      <div class="row">
+      <div class="row" >
         <div class="col-lg-6 align-self-center">
           <div class="header-text">
-            <h6>Dakwat & Co</h6>
-            <p class="fontbeauty" style="font-size: 70px; margin-top: 40px;">We Build</p>
-            <p style="font-size: medium;">Empowering brands through creative digital strategies. Discover how Dakwat Legacy transforms ideas into digital experiences</p>
+            <p class="fontbeauty" style="font-size: 80px; margin-top: 40px; margin-bottom: 30px;">We Build</p>
+            <p style="font-size: medium;">Empowering brands through creative digital strategies. Discover how Dakwat Legacy transforms ideas into digital experiences.</p>
             <div class="buttons">
-              <div class="main-button">
-                <!--<a href="explore.html">Explore Us!</a>-->
+              <div class="border-button">
+                <a href="about us.html">About Us</a>
               </div>
-              <!--<div class="border-button">
-                <a href="explore.html">Explore Us!</a>
-              </div>-->
-              <!--<div class="main-button">
-                <a href="https://youtube.com/templatemo" target="_blank">Watch Our Videos</a>
-              </div>-->
             </div>
           </div>
         </div>
@@ -127,14 +293,6 @@ https://templatemo.com/tm-577-liberty-market
             camera-controls 
             background-color="#ffffff">
           </model-viewer>
-          <!--<div class="owl-banner owl-carousel">
-            <div class="item">
-              <img src="assets/images/banner-01.png" alt="">
-            </div>-->
-            <!--<div class="item">
-              <img src="assets/images/banner-02.png" alt="">
-            </div>
-          </div>-->
         </div>
       </div>
     </div>
@@ -143,157 +301,78 @@ https://templatemo.com/tm-577-liberty-market
   
   <div class="categories-collections">
     <div class="container">
-      <div class="row">
+      <div class="row ">
         <div class="col-lg-12">
           <div class="categories">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="section-heading">
-                  <div class="line-dec"></div>
-                  <h2>Browse Through Our <em>Services</em> Here.</h2>
-                </div>
-              </div>
-              <div class="col-lg-2 col-sm-6">
-                <div class="item">
-                  <div class="icon">
-                    <img src="assets/images/General/icon industrial design.png" alt="">
-                    <i class="bi bi-browser-chrome"></i>
-                  </div>
-                  <h4 style="font-size: 17px">3D Design</h4>
-                  <div class="icon-button">
-                    <a href="3D design.html"><i class="fa fa-angle-right"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-2 col-sm-6">
-                <div class="item">
-                  <div class="icon">
-                    <img src="assets/images/General/icon marketing.png" alt="">
-                  </div>
-                  <h4>Marketing</h4>
-                  <div class="icon-button">
-                    <a href="#"><i class="fa fa-angle-right"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-2 col-sm-6">
-                <div class="item">
-                  <div class="icon">
-                    <img src="assets/images/General/icon web.png" alt="">
-                  </div>
-                  <h4>Website</h4>
-                  <div class="icon-button">
-                    <a href="website.html"><i class="fa fa-angle-right"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-2 col-sm-6">
-                <div class="item">
-                  <div class="icon">
-                    <img src="assets/images/General/icon photography.png" alt="">
-                  </div>
-                  <h4>Photography</h4>
-                  <div class="icon-button">
-                    <a href="#"><i class="fa fa-angle-right"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-2 col-sm-6">
-                <div class="item">
-                  <div class="icon">
-                    <img src="assets/images/General/icon apps.png" alt="">
-                  </div>
-                  <h4>Apps</h4>
-                  <div class="icon-button">
-                    <a href="#"><i class="fa fa-angle-right"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-2 col-sm-6">
-                <div class="item">
-                  <div class="icon">
-                    <img src="assets/images/General/icon printing.png" alt="">
-                  </div>
-                  <h4>Printing</h4>
-                  <div class="icon-button">
-                    <a href="#"><i class="fa fa-angle-right"></i></a>
-                  </div>
-                </div>
-              </div>
+            <div class="section-heading fade-in-section" style="margin-bottom: 40px;">
+              <div class="line-dec"></div>
+              <h1 class="fontbebas">Who We Are?</h1>
             </div>
-          </div>
-        </div>
-
-        <!--package-->
-        <div class="col-lg-12">
-          <div class="collections">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="section-heading">
-                  <div class="line-dec"></div>
-                  <h2>Explore Some <em>Package</em> for our services</h2>
-                </div>
+            
+            <div class="row fade-in-section" style="margin-bottom: 120px;">
+              <div class="col-lg-6">
+                <img src="assets/images/About us/BG dakwat.webp" alt="" class="img-fluid">
               </div>
-              <div class="col-lg-12">
-                <div class="owl-collection owl-carousel">
-                  <div class="item">
-                    <img src="assets/images/General/pg industrial design.jpg" alt="">
-                    <div class="down-content">
-                      <h4>3D Design Package</h4>
-                      <span class="collection">Price from:<br><strong>RM30</strong></span>
-                      <!--<span class="category">Category:<br><strong>Digital Crypto</strong></span>-->
-                      <div class="main-button">
-                        <a href="contact us.html">Contact us</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <img src="assets/images/General/pg content creator.jpg" alt="">
-                    <div class="down-content">
-                      <h4>Marketing Package</h4>
-                      <span class="collection">Price from:<br><strong>RM1,500</strong></span>
-                      <!--<span class="category">Category:<br><strong>Music Art</strong></span>-->
-                      <div class="main-button">
-                        <a href="contact us.html">Contact us</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <img src="assets/images/General/pg website.png" alt="">
-                    <div class="down-content">
-                      <h4>Website Package</h4>
-                      <span class="collection">Price from:<br><strong>RM750</strong></span>
-                      <!--<span class="category">Category:<br><strong>Blockchain</strong></span>-->
-                      <div class="main-button">
-                        <a href="contact us.html">Contact us</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <img src="assets/images/General/pg photography.jpg" alt="">
-                    <div class="down-content">
-                      <h4>Photography Package</h4>
-                      <span class="collection">Price from:<br><strong>RM350</strong></span>
-                      <!--<span class="category">Category:<br><strong>Blockchain</strong></span>-->
-                      <div class="main-button">
-                        <a href="contact us.html">Contact us</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <img src="assets/images/General/pg apps.jpg" alt="">
-                    <div class="down-content">
-                      <h4>Application Package</h4>
-                      <span class="collection">Price from:<br><strong>RM6,000</strong></span>
-                      <!--<span class="category">Category:<br><strong>Blockchain</strong></span>-->
-                      <div class="main-button">
-                        <a href="contact us.html">Contact us</a>
-                      </div>
-                    </div>
+              <div class="col-lg-6 mt-4 mt-lg-0 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
+                <p class="text-justify slide-in">Dakwat is a creative and technology-driven studio that focuses on delivering impactful design, 3D visualisation and digital solutions for businesses who want to stand out and grow.</p>
+                <div class="buttons" style="margin-top: 20px;">
+                  <div class="border-button">
+                    <a href="about us.html" >Know more about us</a>
                   </div>
                 </div>
               </div>
             </div> 
+
+
+            <div class="row fade-in-section">
+              <div class="col-lg-12">
+                <div class="section-heading " style="margin-bottom: 40px;">
+                  <div class="line-dec"></div>
+                  <h1 class="fontbebas">Browse Through Our <em>Services</em> Here.</h1>
+                </div>
+              </div>
+            </div>
+
+            <!-- Services Slider -->
+            <div class="carousel fade-in-section">
+              <button class="carousel-btn prev">‹</button>
+              <div class="carousel-track">
+                <div class="carousel-slide">
+                  <a href="website.html" class="slide-link">
+                    <img src="assets/images/General/Website&App.webp" alt="Website & App">
+                    <div class="overlay">
+                      <span>Explore More</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="carousel-slide">
+                  <a href="3D design.html" class="slide-link">
+                    <img src="assets/images/General/3DDesign.webp" alt="3D Design">
+                    <div class="overlay">
+                      <span>Explore More</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="carousel-slide">
+                  <a href="photograph.html" class="slide-link">
+                    <img src="assets/images/General/Photograph.webp" alt="Photography">
+                    <div class="overlay">
+                      <span>Explore More</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="carousel-slide">
+                  <a href="printing.html" class="slide-link">
+                    <img src="assets/images/General/Printing.webp" alt="Printing">
+                    <div class="overlay">
+                      <span>Explore More</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <button class="carousel-btn next">›</button>
+            </div>
+            <!-- End Services Slider -->
           </div>
         </div>
       </div>
@@ -303,32 +382,40 @@ https://templatemo.com/tm-577-liberty-market
   <div class="create-nft">
     <div class="container">
       <div class="row mb-4">
-        <div class="col-lg-8">
+        <div class="col-lg-3">
           <div class="section-heading">
-            <!--<div class="line-dec"></div>-->
-            <h2 style="color: black;">Our Client</h2>
+            <img src="assets/images/General/LOGO TRANSPARENT.png" style="margin-bottom: 20px;">
+            <h5 style="margin-bottom: 8px">Dakwat Legacy</h5>
+            <p>42300 Bandar Puncak Alam, Selangor</p>
+          </div>
+        </div> 
+        <div class="col-lg-3">
+          <div class="section-heading">
+            <h5 >DAKWAT & CO</h5>
+            <a href="index.html">Home</a>
+            <a href="printing.html">Printing</a>
+            <a href="profile.html">Profile</a>
+            <a href="about us.html">About Us</a>
+            <a href="contact us.html">Contact Us</a>
           </div>
         </div>
-        <div class="row justify-content-start align-items-center text-center">
-          <div class="col-lg-2 col-sm-4 col-6 mb-4">
-            <img src="assets/images/Client/Client 10camp.png" alt="10Camp" class="client-logo">
-          </div>
-          <div class="col-lg-2 col-sm-4 col-6 mb-4">
-            <img src="assets/images/Client/Client ATH.png" alt="ATH" class="client-logo">
-          </div>
-          <div class="col-lg-2 col-sm-4 col-6 mb-4">
-            <img src="assets/images/Client/JKR Sarawak.png" alt="JRK SARAWAK" class="client-logo">
-          </div>
-          <div class="col-lg-2 col-sm-4 col-6 mb-4">
-            <img src="assets/images/Client/Clien AAK.png" alt="AAK" class="client-logo">
-          </div>
-          <div class="col-lg-2 col-sm-4 col-6 mb-4">
-            <img src="assets/images/Client/Client Melodious.webp" alt="Melodious" class="client-logo">
-          </div>
-          <div class="col-lg-2 col-sm-4 col-6 mb-4">
-            <img src="assets/images/Client/JKR Malaysia.webp" alt="JKR" class="client-logo">
+        <div class="col-lg-3">
+          <div class="section-heading">
+            <h5>INFORMATION</h5>
+            <a href="index.html">Home</a>
+            <a href="contact us.html">Connect With Us</a>
           </div>
         </div>
+        <div class="col-lg-3">
+          <div class="section-heading">
+            <h5>GET TO KNOW US</h5>
+            <a href="https://wa.me/60145800098">WhatsApp</a>
+            <a href="https://www.tiktok.com/@dakwatnco?_t=ZS-8yhL9Rgb68e&_r=1">Tik Tok</a>
+            <a href="https://www.instagram.com/dakwatnco?igsh=MTl2ZWFqaG5uYnRlbQ==">Instagram </a>
+            <a href="https://www.facebook.com/share/17CohqrQ2g/">Facebook</a>
+          </div>
+        </div>
+        
       </div>
     </div>
   </div>
@@ -338,12 +425,15 @@ https://templatemo.com/tm-577-liberty-market
       <div class="row">
         <div class="col-lg-12">
           <p>Copyright © 2025 <a href="#">Dakwat & Co</a>, Ltd. All rights reserved.
-          <!--&nbsp;&nbsp;
-          Designed by <a title="HTML CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>-->
         </div>
       </div>
     </div>
   </footer>
+
+    <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/60145800098" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <img src="assets/images/General/whatsapp.png" alt="WhatsApp" />
+  </a>
 
 
   <!-- Scripts -->
@@ -358,8 +448,100 @@ https://templatemo.com/tm-577-liberty-market
   <script src="assets/js/popup.js"></script>
   <script src="assets/js/custom.js"></script>
 
+
+<script>
+const track = document.querySelector('.carousel-track');
+const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+const prevBtn = document.querySelector('.carousel-btn.prev');
+const nextBtn = document.querySelector('.carousel-btn.next');
+
+let currentIndex = 1; 
+let slideWidth = slides[0].offsetWidth + 30; 
+let isDragging = false;
+let startX = 0;
+let currentTranslate = 0;
+let prevTranslate = 0;
+let animationID;
+
+// --- Position track initially ---
+function setPosition() {
+  track.style.transform = `translateX(${-currentIndex * slideWidth + (track.parentElement.offsetWidth/2 - slideWidth/2)}px)`;
+}
+setPosition();
+
+
+// --- Buttons ---
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  setPosition();
+  updateFocus();
+});
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  setPosition();
+  updateFocus();
+});
+
+
+// --- Swipe (touch) ---
+track.addEventListener('touchstart', touchStart);
+track.addEventListener('touchmove', touchMove);
+track.addEventListener('touchend', touchEnd);
+
+function touchStart(e) {
+  isDragging = true;
+  startX = e.touches[0].clientX;
+  prevTranslate = getTranslateX();
+  track.style.transition = "none"; // disable smooth for drag
+}
+
+function touchMove(e) {
+  if (!isDragging) return;
+  const currentX = e.touches[0].clientX;
+  const diff = currentX - startX;
+  currentTranslate = prevTranslate + diff;
+  track.style.transform = `translateX(${currentTranslate}px)`;
+}
+
+function touchEnd(e) {
+  isDragging = false;
+  track.style.transition = "transform 0.6s ease";
+
+  const movedBy = currentTranslate - prevTranslate;
+
+  if (movedBy < -50) {
+    currentIndex = (currentIndex + 1) % slides.length;
+  }
+  if (movedBy > 50) {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  }
+
+  setPosition();
+  updateFocus();
+}
+
+
+function getTranslateX() {
+  const matrix = window.getComputedStyle(track).transform;
+  if (matrix === "none") return 0;
+  return parseFloat(matrix.split(',')[4]);
+}
+
+// --- Focus effect ---
+function updateFocus() {
+  slides.forEach((slide, i) => {
+    slide.classList.remove('focused', 'side', 'far');
+    if (i === currentIndex) {
+      slide.classList.add('focused');
+    } else if (Math.abs(i - currentIndex) === 1) {
+      slide.classList.add('side');
+    } else {
+      slide.classList.add('far');
+    }
+  });
+}
+updateFocus();
+</script>
+
   </body>
-
 </html>
-
-
