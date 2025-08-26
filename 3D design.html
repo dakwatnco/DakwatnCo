@@ -22,13 +22,7 @@
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
 
-TemplateMo 577 Liberty Market
-
-https://templatemo.com/tm-577-liberty-market
-
--->
   <!-- Lightbox CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
 
@@ -39,6 +33,7 @@ https://templatemo.com/tm-577-liberty-market
       height: 0;
       overflow: hidden;
       max-width: 100%;
+      border-radius: 16px; /* adjust radius as you like */
     }
 
     .video-container iframe {
@@ -47,25 +42,7 @@ https://templatemo.com/tm-577-liberty-market
       left: 0;
       width: 100%;
       height: 100%;
-    }
-
-      /* Put this inside your <style> tag or in your CSS file */
-    .item-details-page img {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-
-    .item-details-page img:hover {
-      transform: scale(1.15); /* Makes it slightly bigger */
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Adds a soft shadow */
-      z-index: 2;
-    }
-
-    /*for top project*/
-    .top-projects {
-      /*padding: 50px 0;*/
-      /*background-color: #000; same as your screenshot */
-      color: #fff;
+      border: 0; /* removes default iframe border */
     }
 
     .section-title {
@@ -125,6 +102,50 @@ https://templatemo.com/tm-577-liberty-market
       margin-bottom: 50px;
     }
 
+    /*HEADING*/
+    /* Container */
+    .top-hero {
+      position: relative;
+      margin: 40px 0;
+      overflow: hidden; /* ensures nothing spills out */
+    }
+
+    /* Stack wrapper */
+    .top-hero__stack {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Big background title */
+    .top-hero__title {
+      position: absolute;
+      top: 50%; /* middle vertically */
+      left: 0;  /* stick to the left border */
+      transform: translateY(-50%); /* keep centered vertically */
+      font-size: clamp(48px, 10vw, 140px); /* responsive size */
+      font-weight: 900;
+      color: #ffffff;
+      opacity: 0.15; /* make it look like background text */
+      z-index: 1; /* behind image */
+      white-space: nowrap;
+      text-transform: uppercase;
+
+      /* extra styling for readability */
+      -webkit-text-stroke: 1px rgba(0,0,0,0.3);
+      text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    /* Image on top */
+    .top-hero__image {
+      position: relative;
+      z-index: 2;
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px; /* optional */
+    }
+
   </style>
   
   </head>
@@ -158,7 +179,6 @@ https://templatemo.com/tm-577-liberty-market
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="index.html">Home</a></li>
-                        <!--<li><a href="explore.html">Explore</a></li>-->
                         <li><a href="printing.html">Printing</a></li>
                         <li><a href="profile.html">Profile</a></li>
                         <li><a href="about us.html">About us</a></li>
@@ -190,178 +210,163 @@ https://templatemo.com/tm-577-liberty-market
     </div>
   </div>
 
+  
+
   <div class="item-details-page">
     <div class="container">
+      <div class="top-hero fade-in-section">
+        <div>
+          <h1 class="fontbebas" style="z-index: -1; font-size: 80px;">DIFFERENT ARCHITECTURE</h1>
+            <div style="z-index: 5;">
+            <img src="assets/images/3D design/3D main Image.webp">
+            </div>
+        </div>
+      </div>
 
-      <!--Top Project-->
+      <div class="row fade-in-section" id="architecture">
+          <div class="section-heading" >
+            <div class="line-dec"></div>
+            <h1 class="fontbebas">Top Project</h1>
+          </div>
+      </div>
 
-        <div class="container">
-          <h2 class="section-title">TOP <span>PROJECTS</h2>
-          <div class="projects-grid">
-            <div class="project-card">
-              <a href="#architecture">
-              <img src="assets/images/3D design/IR1.webp" alt="Winter Land">
-              <div class="project-info">
-                <h3>ARCHITECTURE</h3>
-              </div>
-              </a>
+      <div class="container fade-in-section">
+        <div class="projects-grid">
+          <div class="project-card">
+            <a href="#architecture">
+            <img src="assets/images/3D design/Architect 1.webp" alt="architect">
+            <div class="project-info">
+              <h3>ARCHITECTURE</h3>
             </div>
-            <div class="project-card">
-              <a href="#mosque interior">
-              <img src="assets/images/3D design/IR MASJID 1.webp" alt="Spring Field">
-              <div class="project-info">
-                <h3>MASJID INTERIOR</h3>
-              </div>
-              </a>
+            </a>
+          </div>
+          <div class="project-card">
+            <a href="#mosque interior">
+            <img src="assets/images/3D design/IR MASJID 1.webp" alt="mosque">
+            <div class="project-info">
+              <h3>MOSQUE INTERIOR</h3>
             </div>
-            <div class="project-card">
-              <a href="#interior">
-              <img src="assets/images/3D design/IR7.webp" alt="Spring Field">
-              <div class="project-info">
-                <h3>INTERIOR</h3>
-              </div>
-              </a>
+            </a>
+          </div>
+          <div class="project-card">
+            <a href="#interior">
+            <img src="assets/images/3D design/IR7.webp" alt="interior">
+            <div class="project-info">
+              <h3>INTERIOR</h3>
             </div>
+            </a>
           </div>
         </div>
+      </div>
 
       <!--Architecture-->
 
-        <div class="row" style="padding-top: 35px;" id="architecture">
-          <div class="col-lg-12">
-            <div class="section-heading" >
-              <div class="line-dec"></div>
-              <h2><em>Architecture</em></h2>
-            </div>
-          </div>
+      <div class="row fade-in-section"  id="architecture">
+        <div class="section-heading" style="margin-top: 80px;" >
+          <div class="line-dec"></div>
+          <h1 class="fontbebas">Architecture</h1>
         </div>
+      </div>
 
+      <div class="fade-in-section">
         <div class="container">
           <div class="row">
             <div class="projects-grid">
               <div class="project-card">
-                <a href="assets/images/3D design/Architect 1.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/Architect 1.webp" alt="Winter Land">
-                </a>
+                <img src="assets/images/3D design/Architect 1.webp" alt="Architecture">
               </div>
               <div class="project-card">
-                <a href="assets/images/3D design/Architect 2.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/Architect 2.webp" alt="Spring Field">
-                </a>
+                <img src="assets/images/3D design/Architect 2.webp" alt="Architecture">
               </div>
               <div class="project-card">
-                <a href="assets/images/3D design/Architect 3.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/Architect 3.webp" alt="Spring Field">
-                </a>
+                <img src="assets/images/3D design/Architect 3.webp" alt="Architecture">
               </div>
-            </div>
-          </div>
-        </div>
-
-        <!--Mosque interior 1-->
-
-        <div class="row" style="padding-top: 35px;" id="mosque interior">
-          <div class="col-lg-12">
-            <div class="section-heading" >
-              <div class="line-dec"></div>
-              <h2><em>Mosque Interior</em></h2>
-            </div>
-          </div>
-        </div>
-
-        <div class="container">
-          <div class="row">
-            <div class="projects-grid">
-              <div class="project-card">
-                <a href="assets/images/3D design/IR MASJID 1.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR MASJID 1.webp" alt="Winter Land">
-                </a>
-              </div>
-              <div class="project-card">
-                <a href="assets/images/3D design/IR MASJID 2.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR MASJID 2.webp" alt="Spring Field">
-                </a>
-              </div>
-              <div class="project-card">
-                <a href="assets/images/3D design/IR MASJID 3.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR MASJID 3.webp" alt="Spring Field">
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-  
-
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="section-heading">
-            <div class="video-container">
-              <iframe src="https://www.youtube.com/embed/KtC4aAw_5hM?si=igXHygZ2G0VVX7Kb&amp;controls=0&autoplay=1&mute=1&loop=1"
-                title="YouTube video player" 
-                frameborder="0" 
-                allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-              </iframe>
             </div>
           </div>
         </div>
       </div>
 
-        <div class="row"  id="interior">
-          <div class="col-lg-12">
-            <div class="section-heading">
-              <div class="line-dec"></div>
-              <h2><em>Interior</em></h2>
-            </div>
-          </div>
+      <!--Mosque interior 1-->
+      <div class="row fade-in-section" id="mosque interior">
+        <div class="section-heading"  style="margin-top: 80px;">
+          <div class="line-dec"></div>
+          <h1 class="fontbebas">Mosque Interior</h1>
         </div>
+      </div>
 
-        <!--Interior-->
-
+      <div class="fade-in-section">
         <div class="container">
           <div class="row">
             <div class="projects-grid">
               <div class="project-card">
-                <a href="assets/images/3D design/IR1.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR1.webp" alt="Winter Land">
-                </a>
+                <img src="assets/images/3D design/IR MASJID 1.webp" alt="mosque">
               </div>
               <div class="project-card">
-                <a href="assets/images/3D design/IR3.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR3.webp" alt="Spring Field">
-                </a>
+                <img src="assets/images/3D design/IR MASJID 2.webp" alt="mosque">
               </div>
               <div class="project-card">
-                <a href="assets/images/3D design/IR4.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR4.webp" alt="Spring Field">
-                </a>
+                <img src="assets/images/3D design/IR MASJID 3.webp" alt="mosque">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-in-section">
+        <div class="row" style="margin-top: 20px;">
+          <div class="col-lg-12">
+            <div class="section-heading">
+              <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/KtC4aAw_5hM?si=igXHygZ2G0VVX7Kb&amp;controls=0&autoplay=1&mute=1&loop=1"
+                  title="YouTube video player" 
+                  frameborder="0" 
+                  allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row fade-in-section" id="interior">
+        <div class="section-heading" style="margin-top: 80px;">
+          <div class="line-dec"></div>
+          <h1 class="fontbebas">Interior</h1>
+        </div>
+      </div>
+
+        <!--Interior-->
+      
+        <div class="container fade-in-section">
+          <div class="row">
+            <div class="projects-grid">
+              <div class="project-card">
+                <img src="assets/images/3D design/IR1.webp" alt="interior">
+              </div>
+              <div class="project-card">
+                <img src="assets/images/3D design/IR3.webp" alt="interior">
+              </div>
+              <div class="project-card">
+                <img src="assets/images/3D design/IR4.webp" alt="interior">
               </div>
             </div>
           </div>
 
           <!--Interior Row 2-->
-          
           <div class="row" style="padding-top: 20px;">
             <div class="projects-grid">
               <div class="project-card">
-                <a href="assets/images/3D design/IR5.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR5.webp" alt="Winter Land">
-                </a>
+                <img src="assets/images/3D design/IR5.webp" alt="interior">
               </div>
               <div class="project-card">
-                <a href="assets/images/3D design/IR6.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR6.webp" alt="Winter Land">
-                </a>
+                <img src="assets/images/3D design/IR6.webp" alt="interior">
               </div>
               <div class="project-card">
-                <a href="assets/images/3D design/IR7.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR7.webp" alt="Winter Land">
-                </a>
+                <img src="assets/images/3D design/IR7.webp" alt="interior">
               </div>
               <div class="project-card">
-                <a href="assets/images/3D design/IR8.webp" data-lightbox="3d-gallery">
-                <img src="assets/images/3D design/IR8.webp" alt="Winter Land">
-                </a>
+                <img src="assets/images/3D design/IR8.webp" alt="interior">
               </div>
             </div>
           </div>
@@ -369,9 +374,6 @@ https://templatemo.com/tm-577-liberty-market
 
     </div>
   </div>
-
-  
-
 
   <footer>
     <div class="container">
@@ -397,9 +399,28 @@ https://templatemo.com/tm-577-liberty-market
 
   <!-- Lightbox JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+  <!--HEADING-->
+  <script>
+    const faders = document.querySelectorAll('.fade-in-section');
+
+    const appearOptions = {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+
   </body>
 </html>
-
-
-
-
