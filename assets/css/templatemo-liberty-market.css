@@ -135,8 +135,8 @@ body {
 
 .border-button a {
   font-size: 14px;
-  color: #fff;
-  background-color: transparent;
+  color: #000000;
+  background-color: #EDE8D0;
   border: 1px solid #000000;
   padding: 12px 30px;
   display: inline-block;
@@ -728,13 +728,14 @@ Banner Style
 */
 
 .main-banner {
-  background-image: url(../images/General/banner-bg.png);
+  background-image: url(../images/General/HEADING\ BG.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   padding-top: 150px;
   padding-bottom: 120px;
   background-color: #2a2a2a;
+  background-attachment: fixed;
 }
 
 .main-banner h6 {
@@ -815,13 +816,14 @@ Categories & Collections Style
 */
 
 .categories-collections {
-  background-image: url(../images/General/HonMoon-BG.png);
+  background-image: url(../images/General/MAIN\ BG.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   padding: 120px 0px 150px 0px;
   position: relative;
   background-attachment: fixed;
+
 }
 
 .categories-collections:after {
@@ -996,11 +998,11 @@ Create NFT Style
 
 .create-nft {
   /*background-image: url(../images/main-bg.jpg);*/
-  background-color: #e2daad;
+  background-color: #EDE8D0;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  padding: 120px 0px;
+  padding: 100px 0px;
   position: relative;
 }
 
@@ -1098,13 +1100,14 @@ Currently Market Style
 */
 
 .currently-market {
-  background-image: url(../images/HonMoon-BG.png);
+  background-image: url(../images/BG.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   padding: 120px 0px;
   position: relative;
   background-attachment: fixed;
+
 }
 
 .currently-market-item {
@@ -1272,7 +1275,7 @@ Page Heading Style
 }
 
 .page-heading {
-  background-image: url(../images/General/HonMoon-heading-BG.png);
+  background-image: url(../images/General/HEADING\ BG.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1428,13 +1431,14 @@ Explore Style
 }
 
 .discover-items {
-  background-image: url(../images/General/HonMoon-BG.png);
+  background-image: url(../images/General/MAIN\ BG.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   padding: 120px 0px 120px 0px;
   position: relative;
   background-attachment: fixed;
+
 }
 
 .discover-items .section-heading {
@@ -1584,7 +1588,7 @@ Explore Style
 }
 
 .top-seller {
-  background-image: url(../images/General/HonMoon-heading-BG.png);
+  background-image: url(../images/General/HEADING\ BG.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1635,7 +1639,7 @@ Details Page Style
 */
 
 .item-details-page {
-  background-image: url(../images/General/HonMoon-BG.png);
+  background-image: url(../images/General/MAIN\ BG.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1644,6 +1648,7 @@ Details Page Style
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(10px); /* for Safari */
   background-attachment: fixed;
+
 }
 
 .item-details-page:after {
@@ -1872,7 +1877,7 @@ Author Page Style
 */
 
 .author-page {
-  background-image: url(../images/General/HonMoon-BG-author-page.png);
+  background-image: url(../images/General/MAIN\ BG.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1880,6 +1885,7 @@ Author Page Style
   position: relative;
   min-height: 100vh;
   background-attachment: fixed;
+
 }
 
 .author-page .author {
@@ -2172,9 +2178,8 @@ body {
   height: auto;
   filter: grayscale(100%);
   transition: all 0.4s ease-in-out;
-  /*display: block;*/
   border-radius: 10px; /* Optional: smoother look */
-  /*object-fit: cover; /* ✅ Makes all images fill the container evenly */
+
 }
 
 .div-img .img-container:hover img {
@@ -2285,4 +2290,46 @@ body {
 .fade-in-section.is-visible {
   opacity: 1;
   transform: none;
+}
+
+/*ADD ANIMATION SLIDE IN*/
+/* Slide-in base state */
+.slide-in {
+  opacity: 0;
+  transform: translateX(50px); /* slide from right */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* When visible */
+.slide-in.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/*ADD FONT*/
+@font-face {
+font-family: 'MyCustomFont';
+src: url('../webfonts/BeautyDemo.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'MyCustomFont2';
+src: url('../webfonts/BebasNeue-Regular.otf') format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+
+.fontbeauty{
+  font-family: 'MyCustomFont', sans-serif; /* fallback included */ 
+}
+
+.fontbebas{
+  font-family: 'MyCustomFont2', sans-serif; /* fallback included */ 
+}
+
+.section-heading h1 em {
+  color: #dbd4b3da;
+  font-style: normal;
 }

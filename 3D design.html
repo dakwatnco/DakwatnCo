@@ -39,6 +39,7 @@ https://templatemo.com/tm-577-liberty-market
       height: 0;
       overflow: hidden;
       max-width: 100%;
+      border-radius: 16px; /* adjust radius as you like */
     }
 
     .video-container iframe {
@@ -47,31 +48,7 @@ https://templatemo.com/tm-577-liberty-market
       left: 0;
       width: 100%;
       height: 100%;
-    }
-
-      /* Put this inside your <style> tag or in your CSS file */
-    .item-details-page img {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-
-    .item-details-page img:hover {
-      transform: scale(1.15); /* Makes it slightly bigger */
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Adds a soft shadow */
-      z-index: 2;
-    }
-
-    .item-details-page #main img:hover {
-      transform: scale(1.00); /* Makes it slightly bigger */
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Adds a soft shadow */
-      z-index: 2;
-    }
-
-    /*for top project*/
-    .top-projects {
-      /*padding: 50px 0;*/
-      /*background-color: #000; same as your screenshot */
-      color: #fff;
+      border: 0; /* removes default iframe border */
     }
 
     .section-title {
@@ -132,7 +109,7 @@ https://templatemo.com/tm-577-liberty-market
     }
 
     /*HEADING*/
-    /* Container */
+
     .top-hero {
       position: relative;
       margin: 40px 0;
@@ -175,20 +152,6 @@ https://templatemo.com/tm-577-liberty-market
       border-radius: 16px; /* optional */
     }
 
-    /* Fade-in + move up animation */
-    .fade-in-section {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
-      will-change: opacity, transform;
-    }
-
-    .fade-in-section.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-
   </style>
   
   </head>
@@ -222,7 +185,6 @@ https://templatemo.com/tm-577-liberty-market
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="index.html">Home</a></li>
-                        <!--<li><a href="explore.html">Explore</a></li>-->
                         <li><a href="printing.html">Printing</a></li>
                         <li><a href="profile.html">Profile</a></li>
                         <li><a href="about us.html">About us</a></li>
@@ -247,6 +209,7 @@ https://templatemo.com/tm-577-liberty-market
           <span>Home > <a href="#">3D Design</a></span>
           <div class="buttons">
             <div class="main-button">
+
             </div>
           </div>
         </div>
@@ -261,52 +224,55 @@ https://templatemo.com/tm-577-liberty-market
 
       <div class="top-hero fade-in-section">
         <div>
-          <h1 style="z-index: -1;"><em>DIFFERENT ARCHITECTURE</em></h1>
+          <h1 class="fontbebas" style="z-index: -1; font-size: 80px;">DIFFERENT ARCHITECTURE</h1>
             <div style="z-index: 5;">
             <img src="assets/images/3D design/3D main Image.webp">
             </div>
         </div>
       </div>
+      
+      <div class="row fade-in-section" id="architecture">
+          <div class="section-heading" >
+            <div class="line-dec"></div>
+            <h1 class="fontbebas">Top Project</h1>
+          </div>
+      </div>
 
-      <div class="container">
-        <div class="fade-in-section">
-          <div class="projects-grid">
-            <div class="project-card">
-              <a href="#architecture">
-              <img src="assets/images/3D design/Architect 1.webp" alt="architect">
-              <div class="project-info">
-                <h3>ARCHITECTURE</h3>
-              </div>
-              </a>
+      <div class="container fade-in-section">
+        <div class="projects-grid">
+          <div class="project-card">
+            <a href="#architecture">
+            <img src="assets/images/3D design/Architect 1.webp" alt="architect">
+            <div class="project-info">
+              <h3>ARCHITECTURE</h3>
             </div>
-            <div class="project-card">
-              <a href="#mosque interior">
-              <img src="assets/images/3D design/IR MASJID 1.webp" alt="mosque">
-              <div class="project-info">
-                <h3>MASJID INTERIOR</h3>
-              </div>
-              </a>
+            </a>
+          </div>
+          <div class="project-card">
+            <a href="#mosque interior">
+            <img src="assets/images/3D design/IR MASJID 1.webp" alt="mosque">
+            <div class="project-info">
+              <h3>MOSQUE INTERIOR</h3>
             </div>
-            <div class="project-card">
-              <a href="#interior">
-              <img src="assets/images/3D design/IR7.webp" alt="interior">
-              <div class="project-info">
-                <h3>INTERIOR</h3>
-              </div>
-              </a>
+            </a>
+          </div>
+          <div class="project-card">
+            <a href="#interior">
+            <img src="assets/images/3D design/IR7.webp" alt="interior">
+            <div class="project-info">
+              <h3>INTERIOR</h3>
             </div>
+            </a>
           </div>
         </div>
       </div>
 
       <!--Architecture-->
 
-      <div class="row fade-in-section" style="padding-top: 35px;" id="architecture">
-        <div class="col-lg-12">
-          <div class="section-heading" >
-            <div class="line-dec"></div>
-            <h2><em>Architecture</em></h2>
-          </div>
+      <div class="row fade-in-section"  id="architecture">
+        <div class="section-heading" style="margin-top: 80px;" >
+          <div class="line-dec"></div>
+          <h1 class="fontbebas">Architecture</h1>
         </div>
       </div>
 
@@ -328,15 +294,11 @@ https://templatemo.com/tm-577-liberty-market
         </div>
       </div>
 
-        <!--Mosque interior 1-->
-      <div class="fade-in-section">
-        <div class="row" style="padding-top: 35px;" id="mosque interior">
-          <div class="col-lg-12">
-            <div class="section-heading" >
-              <div class="line-dec"></div>
-              <h2><em>Mosque Interior</em></h2>
-            </div>
-          </div>
+      <!--Mosque interior 1-->
+      <div class="row fade-in-section" id="mosque interior">
+        <div class="section-heading"  style="margin-top: 80px;">
+          <div class="line-dec"></div>
+          <h1 class="fontbebas">Mosque Interior</h1>
         </div>
       </div>
 
@@ -359,7 +321,7 @@ https://templatemo.com/tm-577-liberty-market
       </div>
 
       <div class="fade-in-section">
-        <div class="row">
+        <div class="row" style="margin-top: 20px;">
           <div class="col-lg-12">
             <div class="section-heading">
               <div class="video-container">
@@ -375,20 +337,16 @@ https://templatemo.com/tm-577-liberty-market
         </div>
       </div>
 
-      <div class="fade-in-section">
-        <div class="row"  id="interior">
-          <div class="col-lg-12">
-            <div class="section-heading">
-              <div class="line-dec"></div>
-              <h2><em>Interior</em></h2>
-            </div>
-          </div>
+      <div class="row fade-in-section" id="interior">
+        <div class="section-heading" style="margin-top: 80px;">
+          <div class="line-dec"></div>
+          <h1 class="fontbebas">Interior</h1>
         </div>
       </div>
 
         <!--Interior-->
       
-        <div class="container">
+        <div class="container fade-in-section">
           <div class="row">
             <div class="projects-grid">
               <div class="project-card">
@@ -404,7 +362,6 @@ https://templatemo.com/tm-577-liberty-market
           </div>
 
           <!--Interior Row 2-->
-          
           <div class="row" style="padding-top: 20px;">
             <div class="projects-grid">
               <div class="project-card">
@@ -425,9 +382,6 @@ https://templatemo.com/tm-577-liberty-market
 
     </div>
   </div>
-
-  
-
 
   <footer>
     <div class="container">
