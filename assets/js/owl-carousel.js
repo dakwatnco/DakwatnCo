@@ -3463,3 +3463,32 @@ document.addEventListener("DOMContentLoaded", function() {
     observer.observe(fader);
   });
 });
+
+/*ADD ANIMATION FADE IN */
+document.addEventListener("DOMContentLoaded", function() {
+  const faders = document.querySelectorAll('.fade-in-section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  faders.forEach(fader => {
+    observer.observe(fader);
+  });
+});
+
+/*ADD ANIMATION SLIDE IN */
+  const slideElements = document.querySelectorAll('.slide-in');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  slideElements.forEach(el => observer.observe(el));
