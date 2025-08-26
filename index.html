@@ -78,149 +78,166 @@
       box-shadow: 0 6px 12px rgba(0,0,0,0.25);
     }
 
-.carousel {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.6s ease;
-}
-
-.carousel-slide {
-  flex: 0 0 350px; /* fixed width per slide */
-  margin: 0 15px;
-  position: relative;
-  transition: transform 0.6s ease, z-index 0.6s ease;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.carousel-slide img {
-  width: 100%;
-  display: block;
-  border-radius: 12px;
-  transition: transform 0.4s ease;
-
-}
-
-.carousel-slide::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-  border-radius: 16px;
-  transition: opacity 0.6s ease;
-  opacity: 1;
-  z-index: 0; /* <--- make sure it stays at the bottom */
-  pointer-events: none; /* <--- don't block clicks */
-}
-
-/* Focused slide */
-.carousel-slide.focused {
-  transform: scale(1.0);
-  z-index: 3;
-}
-.carousel-slide.focused::after {
-  opacity: 0;
-}
-
-/* Side slides */
-.carousel-slide.side {
-  transform: scale(0.9);
-  z-index: 2;
-}
-
-/* Far slides */
-.carousel-slide.far {
-  transform: scale(0.75);
-  z-index: 1;
-}
-
-/* Buttons */
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 10;
-}
-.carousel-btn.prev { left: 20px; }
-.carousel-btn.next { right: 20px; }
-
-/* Ensure the clickable link + hover overlay is above */
-.slide-link {
-  display: block;
-  position: relative;
-  text-decoration: none;
-  color: inherit;
-  z-index: 1; /* <--- above ::after */
-}
-.slide-link img {
-  display: block;
-  width: 100%;
-  border-radius: 12px;
-  position: relative;
-  z-index: 1;
-}
-
-.slide-link .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  opacity: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.4s ease;
-  border-radius: 12px;
-  z-index: 2; /* <--- above image */
-  pointer-events: none; /* overlay won’t block clicking */
-}
-
-.slide-link .overlay span {
-  color: #fff;
-  font-size: 1.4rem;
-  font-weight: 600;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.4s ease;
-  pointer-events: none;
-}
-
-/* Hover (desktop) */
-.slide-link:hover img {
-  transform: scale(1.05);
-}
-.slide-link:hover .overlay {
-  opacity: 1;
-}
-.slide-link:hover .overlay span {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Mobile (simulate click with :active) */
-.slide-link:active .overlay {
-  opacity: 1;
-}
-.slide-link:active .overlay span {
-  opacity: 1;
-  transform: translateY(0);
-}
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s ease;
+    }
+    
+    .carousel-slide {
+      flex: 0 0 350px; /* fixed width per slide */
+      margin: 0 15px;
+      position: relative;
+      transition: transform 0.6s ease, z-index 0.6s ease;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    
+    .carousel-slide img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      transition: transform 0.4s ease;
+    
+    }
+    
+    .carousel-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      border-radius: 16px;
+      transition: opacity 0.6s ease;
+      opacity: 1;
+      z-index: 0; /* <--- make sure it stays at the bottom */
+      pointer-events: none; /* <--- don't block clicks */
+    }
+    
+    /* Focused slide */
+    .carousel-slide.focused {
+      transform: scale(1.0);
+      z-index: 3;
+    }
+    .carousel-slide.focused::after {
+      opacity: 0;
+    }
+    
+    /* Side slides */
+    .carousel-slide.side {
+      transform: scale(0.9);
+      z-index: 2;
+    }
+    
+    /* Far slides */
+    .carousel-slide.far {
+      transform: scale(0.75);
+      z-index: 1;
+    }
+    
+    /* Buttons */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+    }
+    .carousel-btn.prev { left: 20px; }
+    .carousel-btn.next { right: 20px; }
+    
+    /* Ensure the clickable link + hover overlay is above */
+    .slide-link {
+      display: block;
+      position: relative;
+      text-decoration: none;
+      color: inherit;
+      z-index: 1; /* <--- above ::after */
+    }
+    .slide-link img {
+      display: block;
+      width: 100%;
+      border-radius: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .slide-link .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s ease;
+      border-radius: 12px;
+      z-index: 2; /* <--- above image */
+      pointer-events: none; /* overlay won’t block clicking */
+    }
+    
+    .slide-link .overlay span {
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s ease;
+      pointer-events: none;
+    }
+    
+    /* Hover (desktop) */
+    .slide-link:hover img {
+      transform: scale(1.05);
+    }
+    .slide-link:hover .overlay {
+      opacity: 1;
+    }
+    .slide-link:hover .overlay span {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Mobile (simulate click with :active) */
+    .slide-link:active .overlay {
+      opacity: 1;
+    }
+    .slide-link:active .overlay span {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /*animation vr*/
+    .model-zoom {
+      animation: zoomIn 1s ease-out forwards;
+      transform-origin: center; /* ensures zoom happens from the center */
+    }
+    
+    @keyframes zoomIn {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
 
   </style>
   </head>
@@ -291,7 +308,8 @@
             alt="A 3D model" 
             auto-rotate 
             camera-controls 
-            background-color="#ffffff">
+            background-color="#ffffff"
+            class="model-zoom">
           </model-viewer>
         </div>
       </div>
@@ -545,3 +563,4 @@ updateFocus();
 
   </body>
 </html>
+
