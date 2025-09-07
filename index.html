@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
+  <script src="assets/others/panorama_2.xml"></script>
+
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
   <style>
@@ -36,21 +38,37 @@
       width: 100%;
       height: 500px;
     }
-    .create-nft h5{
-      margin-bottom: 15px;
-      color: black;
+
+    /* Tablet */
+    @media (max-width: 992px) {
+      model-viewer {
+        height: 350px; /* smaller */
+      }
     }
-    .create-nft p {
-      color: black;
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      model-viewer {
+        height: 300px; /* much smaller */
+      }
     }
-    .create-nft a {
-      color: #1e1e1e;
-      display: block; /* Makes the link behave like a block element */
-      margin-bottom: 8px;
+
+    /*animation vr*/
+    .model-zoom {
+      animation: zoomIn 2s ease-out forwards;
+      transform-origin: center; /* ensures zoom happens from the center */
     }
-    .create-nft a:hover{
-      color: #84816dfe;
-    }
+
+    @keyframes zoomIn {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    } 
 
     .whatsapp-float {
       position: fixed;
@@ -78,166 +96,175 @@
       box-shadow: 0 6px 12px rgba(0,0,0,0.25);
     }
 
-    .carousel {
-      position: relative;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-    
-    .carousel-track {
-      display: flex;
-      transition: transform 0.6s ease;
-    }
-    
-    .carousel-slide {
-      flex: 0 0 350px; /* fixed width per slide */
-      margin: 0 15px;
-      position: relative;
-      transition: transform 0.6s ease, z-index 0.6s ease;
-      overflow: hidden;
-      border-radius: 12px;
-    }
-    
-    .carousel-slide img {
-      width: 100%;
-      display: block;
-      border-radius: 12px;
-      transition: transform 0.4s ease;
-    
-    }
-    
-    .carousel-slide::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.4);
-      border-radius: 16px;
-      transition: opacity 0.6s ease;
-      opacity: 1;
-      z-index: 0; /* <--- make sure it stays at the bottom */
-      pointer-events: none; /* <--- don't block clicks */
-    }
-    
-    /* Focused slide */
-    .carousel-slide.focused {
-      transform: scale(1.0);
-      z-index: 3;
-    }
-    .carousel-slide.focused::after {
-      opacity: 0;
-    }
-    
-    /* Side slides */
-    .carousel-slide.side {
-      transform: scale(0.9);
-      z-index: 2;
-    }
-    
-    /* Far slides */
-    .carousel-slide.far {
-      transform: scale(0.75);
-      z-index: 1;
-    }
-    
-    /* Buttons */
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
-      border: none;
-      color: white;
-      font-size: 2rem;
-      padding: 10px 15px;
-      cursor: pointer;
-      border-radius: 50%;
-      z-index: 10;
-    }
-    .carousel-btn.prev { left: 20px; }
-    .carousel-btn.next { right: 20px; }
-    
-    /* Ensure the clickable link + hover overlay is above */
-    .slide-link {
-      display: block;
-      position: relative;
-      text-decoration: none;
-      color: inherit;
-      z-index: 1; /* <--- above ::after */
-    }
-    .slide-link img {
-      display: block;
-      width: 100%;
-      border-radius: 12px;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .slide-link .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      opacity: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.4s ease;
-      border-radius: 12px;
-      z-index: 2; /* <--- above image */
-      pointer-events: none; /* overlay won’t block clicking */
-    }
-    
-    .slide-link .overlay span {
-      color: #fff;
-      font-size: 1.4rem;
-      font-weight: 600;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.4s ease;
-      pointer-events: none;
-    }
-    
-    /* Hover (desktop) */
-    .slide-link:hover img {
-      transform: scale(1.05);
-    }
-    .slide-link:hover .overlay {
-      opacity: 1;
-    }
-    .slide-link:hover .overlay span {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    /* Mobile (simulate click with :active) */
-    .slide-link:active .overlay {
-      opacity: 1;
-    }
-    .slide-link:active .overlay span {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    /*animation vr*/
-    .model-zoom {
-      animation: zoomIn 2s ease-out forwards;
-      transform-origin: center; /* ensures zoom happens from the center */
-    }
-    
-    @keyframes zoomIn {
-      0% {
-        transform: scale(0.5);
-        opacity: 0;
-      }
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.carousel-slide {
+  flex: 0 0 350px; /* fixed width per slide */
+  margin: 0 15px;
+  position: relative;
+  transition: transform 0.6s ease, z-index 0.6s ease;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.carousel-slide img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+
+}
+
+.carousel-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  border-radius: 16px;
+  transition: opacity 0.6s ease;
+  opacity: 1;
+  z-index: 0; /* <--- make sure it stays at the bottom */
+  pointer-events: none; /* <--- don't block clicks */
+}
+
+/* Focused slide */
+.carousel-slide.focused {
+  transform: scale(1.0);
+  z-index: 3;
+}
+.carousel-slide.focused::after {
+  opacity: 0;
+}
+
+/* Side slides */
+.carousel-slide.side {
+  transform: scale(0.9);
+  z-index: 2;
+}
+
+/* Far slides */
+.carousel-slide.far {
+  transform: scale(0.75);
+  z-index: 1;
+}
+
+/* Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+.carousel-btn.prev { left: 20px; }
+.carousel-btn.next { right: 20px; }
+
+/* Ensure the clickable link + hover overlay is above */
+.slide-link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  z-index: 1; /* <--- above ::after */
+}
+.slide-link img {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.slide-link .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease;
+  border-radius: 12px;
+  z-index: 2; /* <--- above image */
+  pointer-events: none; /* overlay won’t block clicking */
+}
+
+.slide-link .overlay span {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+/* Hover (desktop) */
+.slide-link:hover img {
+  transform: scale(1.05);
+}
+.slide-link:hover .overlay {
+  opacity: 1;
+}
+.slide-link:hover .overlay span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile (simulate click with :active) */
+.slide-link:active .overlay {
+  opacity: 1;
+}
+.slide-link:active .overlay span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .carousel-slide {
+    flex: 0 0 50%; /* 50% of screen width */
+    margin: 0 12px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .carousel-slide {
+    flex: 0 0 60%; /* slightly smaller than tablet */
+    margin: 0 8px;
+  }
+
+  .carousel-btn {
+    font-size: 1.5rem;
+    padding: 6px 10px;
+  }
+
+  .slide-link .overlay span {
+    font-size: 1rem;
+  }
+}
+
 
   </style>
   </head>
@@ -391,6 +418,7 @@
               <button class="carousel-btn next">›</button>
             </div>
             <!-- End Services Slider -->
+
           </div>
         </div>
       </div>
@@ -400,14 +428,14 @@
   <div class="create-nft">
     <div class="container">
       <div class="row mb-4">
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-12">
           <div class="section-heading">
             <img src="assets/images/General/LOGO TRANSPARENT.png" style="margin-bottom: 20px;">
             <h5 style="margin-bottom: 8px">Dakwat Legacy</h5>
             <p>42300 Bandar Puncak Alam, Selangor</p>
           </div>
         </div> 
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-12">
           <div class="section-heading">
             <h5 >DAKWAT & CO</h5>
             <a href="index.html">Home</a>
@@ -417,14 +445,14 @@
             <a href="contact us.html">Contact Us</a>
           </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-12">
           <div class="section-heading">
             <h5>INFORMATION</h5>
             <a href="index.html">Home</a>
             <a href="contact us.html">Connect With Us</a>
           </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-12">
           <div class="section-heading">
             <h5>GET TO KNOW US</h5>
             <a href="https://wa.me/60145800098">WhatsApp</a>
@@ -481,12 +509,20 @@ let currentTranslate = 0;
 let prevTranslate = 0;
 let animationID;
 
-// --- Position track initially ---
 function setPosition() {
-  track.style.transform = `translateX(${-currentIndex * slideWidth + (track.parentElement.offsetWidth/2 - slideWidth/2)}px)`;
-}
-setPosition();
+  const slide = slides[currentIndex];
+  const slideStyle = window.getComputedStyle(slide);
+  const marginRight = parseInt(slideStyle.marginRight) || 0;
+  const marginLeft = parseInt(slideStyle.marginLeft) || 0;
+  const slideTotalWidth = slide.offsetWidth + marginLeft + marginRight;
 
+  const containerWidth = track.parentElement.offsetWidth;
+  const offset = containerWidth / 2 - slideTotalWidth / 2;
+
+  track.style.transform = `translateX(${-currentIndex * slideTotalWidth + offset}px)`;
+}
+
+setPosition();
 
 // --- Buttons ---
 prevBtn.addEventListener('click', () => {
@@ -559,9 +595,11 @@ function updateFocus() {
   });
 }
 updateFocus();
+// Recenter slides when window is resized (mobile/tablet/desktop)
+window.addEventListener('resize', setPosition);
+
 </script>
+
 
   </body>
 </html>
-
-
