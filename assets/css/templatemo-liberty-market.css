@@ -855,7 +855,12 @@ Banner Style
   color: #EDE8D0;
 }
 
-
+@media (max-width: 600px) {
+  .main-banner{
+    padding-top: 100px;
+    padding: 100px 15px 120px 15px;
+  }
+}
 /* 
 ---------------------------------------------
 Categories & Collections Style
@@ -2469,3 +2474,4 @@ font-style: normal;
   color: #dbd4b3da;
   font-style: normal;
 }
+
