@@ -775,13 +775,12 @@ Banner Style
 */
 
 .main-banner {
-  background-image: url(../images/General/HEADING\ BG.png);
+  background-color: #000000;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  padding-top: 150px;
-  padding-bottom: 120px;
-  background-color: #2a2a2a;
+  padding-top: 250px;
+  padding-bottom: 220px;
   background-attachment: fixed;
 }
 
@@ -801,7 +800,9 @@ Banner Style
 }
 
 .main-banner p {
-  margin-top: 20px;
+  font-size: 80px; 
+  margin: 100px 0px 60px 0px; 
+  line-height: 1.1
 }
 
 .main-banner .buttons {
@@ -859,6 +860,11 @@ Banner Style
   .main-banner{
     padding-top: 100px;
     padding: 100px 15px 120px 15px;
+  }
+  .main-banner p {
+    font-size: 50px; 
+    margin: 100px 0px 60px 0px; 
+    line-height: 1.1
   }
 }
 /* 
@@ -2475,3 +2481,116 @@ font-style: normal;
   font-style: normal;
 }
 
+.accordion {
+  background-color: #EDE8D0;
+  color: #000000;
+  cursor: pointer;
+  padding: 18px;
+  width: 60%;
+  border: none;
+  text-align: center;
+  font-size: 30px;
+  outline: none;
+  transition: 0.4s;
+  border-radius: 12px;
+  margin: 10px 0px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .accordion {
+    width: 85%;
+  }
+  .panel {
+  width: 100%;  
+  }
+}
+
+/* center the accordion buttons */
+.row.fontbebas.fade-in-section {
+  display: flex;
+  flex-direction: column;   /* stack accordions vertically */
+  align-items: center;      /* center them horizontally */
+}
+
+/* optional: center the text inside panels too */
+.panel {
+  width: 80%;              /* match accordion width */
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: rgba(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+.panel img {
+  max-width: 100%;   /* never overflow container */
+  width: 500px;      /* control size (adjust as needed) */
+  height: auto;      /* keep aspect ratio */
+  display: block;    /* removes inline spacing */
+  margin: 0 auto;    /* centers the image */
+}
+
+/* Base USP background styles */
+.background-usp {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 400px;
+  border-radius: 20px;
+  padding: 60px 20px;
+  overflow: hidden;
+}
+
+/* Different images for each USP */
+.background-usp.USP1 {
+  background-image: url("../images/General/USP-01.webp");
+}
+
+.background-usp.USP2 {
+  background-image: url("../images/General/USP-02.webp");
+}
+
+.background-usp.USP3 {
+  background-image: url("../images/General/USP-03.webp");
+}
+
+/* Overlay */
+.background-usp::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  z-index: 1;
+}
+
+/* Make sure text is above overlay */
+.background-usp > * {
+  position: relative;
+  z-index: 2;
+}
+
+.background-usp p{
+text-shadow: 
+    0 0 5px rgba(0,0,0,0.8),
+    0 0 10px rgba(0,0,0,0.6);
+}
+
+.background-usp h1{
+text-shadow: 
+    0 0 5px rgba(0,0,0,0.8),
+    0 0 10px rgba(0,0,0,0.6);
+}
