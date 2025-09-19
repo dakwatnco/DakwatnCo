@@ -351,7 +351,7 @@
 
               <div class="col-lg-6">
 
-                <model-viewer src="https://drive.google.com/file/d/1EtVXkCbEl53hz9VnZNM_0lqvkKRDtALr/view?usp=sharing"
+                <model-viewer src="assets/others/meta-quest-3/source/Quest3.glb"
                   alt="A 3D model" 
                   auto-rotate 
                   camera-controls 
@@ -525,9 +525,9 @@
               </div>
             </div>
             <div class="row client-logos fade-in-section">
-              <img src="assets/images/Brand/White AAK.png" alt="AAK" class="client-logo">
-              <img src="assets/images/Brand/White edruze.png" alt="Edruze" class="client-logo">
-              <img src="assets/images/Brand/White aala picasso.png" alt="Aala-picasso" class="client-logo">
+              <img src="assets/images/Brand/White AAK.png" alt="AAK" class="client-logo" loading="lazy">
+              <img src="assets/images/Brand/White edruze.png" alt="Edruze" class="client-logo" loading="lazy">
+              <img src="assets/images/Brand/White aala picasso.png" alt="Aala-picasso" class="client-logo" loading="lazy">
             </div>
 
           </div>
@@ -621,6 +621,7 @@ let currentTranslate = 0;
 let prevTranslate = 0;
 let animationID;
 
+// --- Position track initially ---
 function setPosition() {
   const slide = slides[currentIndex];
   const slideStyle = window.getComputedStyle(slide);
@@ -707,7 +708,7 @@ function updateFocus() {
   });
 }
 updateFocus();
-// Recenter slides when window is resized (mobile/tablet/desktop)
+
 window.addEventListener('resize', setPosition);
 </script>
 
