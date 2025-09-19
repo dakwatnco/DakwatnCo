@@ -2457,6 +2457,7 @@ font-family: 'MyCustomFont';
 src: url('../webfonts/BeautyDemo.ttf') format('truetype');
 font-weight: normal;
 font-style: normal;
+font-display: swap;
 }
 
 @font-face {
@@ -2464,6 +2465,7 @@ font-family: 'MyCustomFont2';
 src: url('../webfonts/BebasNeue-Regular.otf') format('truetype');
 font-weight: normal;
 font-style: normal;
+font-display: swap;
 }
 
 .fontbeauty{
@@ -2592,4 +2594,5 @@ text-shadow:
     0 0 5px rgba(0,0,0,0.8),
     0 0 10px rgba(0,0,0,0.6);
 }
+
 
