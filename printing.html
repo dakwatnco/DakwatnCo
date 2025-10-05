@@ -25,8 +25,8 @@
 
 <style>
     .page-heading {
-      position: relative;
-      min-height:70vh; 
+      position: relative;    
+      min-height:70vh; /* Adjust as needed */
       height: auto;
       display: flex;
       align-items: center;
@@ -36,7 +36,7 @@
 
     .page-heading .heading-content {
       position: relative;
-      z-index: 3; 
+      z-index: 3; /* makes sure text stays above video */
       color: #fff;
     }
 
@@ -64,7 +64,18 @@
       color: rgb(62, 62, 62);
       border: 1px solid rgb(62, 62, 62);
     }
+
+    h1 {
+      color: black;
+    }
     
+    img {
+      max-width: 100%;   /* never overflow container */
+      width: 500px;      /* control size (adjust as needed) */
+      height: auto;      /* keep aspect ratio */
+      display: block;    /* removes inline spacing */
+      margin: 20px auto;    /* centers the image */
+    }
 </style>
 
   </head>
@@ -98,6 +109,7 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="index.html">Home</a></li>
+                        <!--<li><a href="explore.html">Explore</a></li>-->
                         <li><a href="printing.html" class="active">Printing</a></li>
                         <li><a href="profile.html">Profile</a></li>
                         <li><a href="about us.html">About us</a></li>
@@ -131,6 +143,7 @@
 
   <div class="item-details-page">
     <div class="container">
+
       <div class="row fade-in-section align-items-center">
         <div class="col-lg-6">
           <img src="assets/images/General/Dakwat WhatsApp.webp" class="img-fluid" loading="lazy">
@@ -145,8 +158,20 @@
             </div>
           </div>
         </div>
-
       </div>
+
+      <div class="row fade-in-section align-items-center">
+        <div class="col-lg-12">
+          <div class="section-heading " style="margin-bottom: 40px; margin-top: 90px;">
+            <div class="line-dec"></div>
+            <h1 class="fontbebas" style="color: black;">Price List</h1>
+              <div class="img">
+                <img src="assets/images/General/Printing Price List.webp">
+              </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
