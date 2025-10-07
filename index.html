@@ -42,21 +42,21 @@
     /* Tablet */
     @media (max-width: 992px) {
       model-viewer {
-        height: 350px; /* smaller */
+        height: 350px;
       }
     }
 
     /* Mobile */
     @media (max-width: 600px) {
       model-viewer {
-        height: 300px; /* much smaller */
+        height: 300px; 
       }
     }
 
     /*animation vr*/
     .model-zoom {
       animation: zoomIn 2s ease-out forwards;
-      transform-origin: center; /* ensures zoom happens from the center */
+      transform-origin: center; 
     }
 
     @keyframes zoomIn {
@@ -96,15 +96,6 @@
       box-shadow: 0 6px 12px rgba(0,0,0,0.25);
     }
 
-    .hero-video {
-      width: 1000px;       /* make it smaller */
-      max-width: 100%;    /* stay responsive */
-      border-radius: 30px; /* match your style */
-      display: block;
-      margin: 0 auto;     /* center it in the row */
-    }
-
-
 .carousel {
   position: relative;
   width: 100%;
@@ -119,7 +110,7 @@
 }
 
 .carousel-slide {
-  flex: 0 0 350px; /* fixed width per slide */
+  flex: 0 0 350px; 
   margin: 0 15px;
   position: relative;
   transition: transform 0.6s ease, z-index 0.6s ease;
@@ -143,8 +134,8 @@
   border-radius: 16px;
   transition: opacity 0.6s ease;
   opacity: 1;
-  z-index: 0; /* <--- make sure it stays at the bottom */
-  pointer-events: none; /* <--- don't block clicks */
+  z-index: 0; 
+  pointer-events: none; 
 }
 
 /* Focused slide */
@@ -185,13 +176,12 @@
 .carousel-btn.prev { left: 20px; }
 .carousel-btn.next { right: 20px; }
 
-/* Ensure the clickable link + hover overlay is above */
 .slide-link {
   display: block;
   position: relative;
   text-decoration: none;
   color: inherit;
-  z-index: 1; /* <--- above ::after */
+  z-index: 1; 
 }
 .slide-link img {
   display: block;
@@ -214,8 +204,8 @@
   justify-content: center;
   transition: opacity 0.4s ease;
   border-radius: 12px;
-  z-index: 2; /* <--- above image */
-  pointer-events: none; /* overlay won’t block clicking */
+  z-index: 2; 
+  pointer-events: none; 
 }
 
 .slide-link .overlay span {
@@ -240,7 +230,6 @@
   transform: translateY(0);
 }
 
-/* Mobile (simulate click with :active) */
 .slide-link:active .overlay {
   opacity: 1;
 }
@@ -252,15 +241,14 @@
 /* Tablet */
 @media (max-width: 992px) {
   .carousel-slide {
-    flex: 0 0 50%; /* 50% of screen width */
+    flex: 0 0 50%; 
     margin: 0 12px;
   }
 }
 
-/* Mobile */
 @media (max-width: 600px) {
   .carousel-slide {
-    flex: 0 0 60%; /* slightly smaller than tablet */
+    flex: 0 0 60%; 
     margin: 0 8px;
   }
 
@@ -306,10 +294,7 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="index.html" class="active">Home</a></li>
-                        <!--<li><a href="explore.html">Explore</a></li>-->
                         <li><a href="printing.html">Printing</a></li>
-                        <!--<li><a href="details.html">Item Details</a></li>-->
-                        <li><a href="profile.html">Profile</a></li>
                         <li><a href="about us.html">About us</a></li>
                         <li><a href="contact us.html">Contact us</a></li>
                     </ul>   
@@ -448,6 +433,14 @@
                     </div>
                   </a>
                 </div>
+                <div class="carousel-slide">
+                  <a href="marketing.html" class="slide-link">
+                    <img src="assets/images/General/DigitalMarketing.webp" alt="Marketing" loading="lazy">
+                    <div class="overlay">
+                      <span>Explore More</span>
+                    </div>
+                  </a>
+                </div>
               </div>
               <button class="carousel-btn next">›</button>
             </div>
@@ -525,7 +518,6 @@
               </div>
             </div>
             <div class="row client-logos fade-in-section">
-              <img src="assets/images/Brand/White AAK.png" alt="AAK" class="client-logo" loading="lazy">
               <img src="assets/images/Brand/White edruze.png" alt="Edruze" class="client-logo" loading="lazy">
               <img src="assets/images/Brand/White aala picasso.png" alt="Aala-picasso" class="client-logo" loading="lazy">
             </div>
@@ -544,7 +536,7 @@
           <div class="section-heading">
             <img src="assets/images/General/LOGO TRANSPARENT.png" style="margin-bottom: 20px;">
             <h5 style="margin-bottom: 8px">Dakwat Legacy</h5>
-            <p>42300 Bandar Puncak Alam, Selangor</p>
+            <p>No.38-2 , Jalan Dataran Suria 15/8, 2, Seksyen 15, 42300 Puncak Alam, Selangor</p>
           </div>
         </div> 
         <div class="col-lg-3 col-12">
@@ -613,15 +605,14 @@ const slides = Array.from(document.querySelectorAll('.carousel-slide'));
 const prevBtn = document.querySelector('.carousel-btn.prev');
 const nextBtn = document.querySelector('.carousel-btn.next');
 
-let currentIndex = 1; // since you want 2nd image focused at start
-let slideWidth = slides[0].offsetWidth + 30; // width + margin
+let currentIndex = 1; 
+let slideWidth = slides[0].offsetWidth + 30; 
 let isDragging = false;
 let startX = 0;
 let currentTranslate = 0;
 let prevTranslate = 0;
 let animationID;
 
-// --- Position track initially ---
 function setPosition() {
   const slide = slides[currentIndex];
   const slideStyle = window.getComputedStyle(slide);
@@ -708,7 +699,7 @@ function updateFocus() {
   });
 }
 updateFocus();
-
+// Recenter slides when window is resized (mobile/tablet/desktop)
 window.addEventListener('resize', setPosition);
 </script>
 
@@ -728,7 +719,6 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 </script>
-
 
   </body>
 </html>

@@ -25,13 +25,13 @@
 
     <style>
     body {
-      overflow-y: auto;     
-      overflow-x: hidden;  
+      overflow-y: auto;     /* Allow vertical scroll */
+      overflow-x: hidden;   /* Prevent horizontal scroll */
     }
 
     .page-heading {
       position: relative;
-      min-height:70vh; 
+      min-height:70vh; /* Adjust as needed */
       height: auto;
       display: flex;
       align-items: center;
@@ -45,7 +45,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover; 
+      object-fit: cover; /* makes video cover like background */
       z-index: 1;
     }
 
@@ -55,18 +55,14 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.2); 
+      background: rgba(0,0,0,0.2); /* dark overlay so text is visible */
       z-index: 2;
     }
 
     .page-heading .heading-content {
       position: relative;
-      z-index: 3; 
+      z-index: 3; /* makes sure text stays above video */
       color: #fff;
-    }
-
-    .heading-content h2 {
-      margin-top: 250px;
     }
 
     </style>
@@ -103,7 +99,6 @@
                     <ul class="nav">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="printing.html">Printing</a></li>
-                        <li><a href="profile.html">Profile</a></li>
                         <li><a href="about us.html" class="active">About us</a></li>
                         <li><a href="contact us.html">Contact us</a></li>
                     </ul>   
@@ -134,7 +129,7 @@
     </div>
   </div>
 
-  <div class="author-page">
+  <div class="item-details-page">
     <div class="container">
 
       <!--OUR TEAM-->
@@ -241,29 +236,6 @@
                 </div>
               </div>
           </div> 
-        </div>
-      </div>
-
-      <div class="fade-in-section">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="section-heading" style="text-align: center;">
-              <div class="line-dec"></div>
-              <h1 class="fontbebas">Team <em>Production</em></h1>
-            </div>
-          </div>
-        </div>
-
-        <div class="row" style="margin-bottom: 30px;">
-          <div class="col-lg-6">
-            <img src="assets/images/About us/Production.jpg" alt="" class="img-fluid">
-          </div>
-          <div class="col-lg-6">
-            <p class="text-justify">Our production team turns ideas into reality with precision, creativity, and attention to detail. 
-              From concept development to final delivery, we ensure every project meets the highest standards of quality. 
-              Whether it’s crafting impactful visuals, designing engaging content, or bringing creative concepts to life, our team works behind the scenes to make sure every element is executed flawlessly. 
-              We believe great production is more than just output. It’s about creating work that leaves a lasting impression.</p>
-          </div>
         </div>
       </div>
       
