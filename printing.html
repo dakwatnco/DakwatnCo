@@ -9,7 +9,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-    <title>Dakwat & Co | Printing</title>
+    <title>Dakwat Space | Printing</title>
     <link rel="icon" href="assets/images/General/LOGO CIRCLE DAKWAT.png" type="image/x-icon" />
 
     <!-- Bootstrap core CSS -->
@@ -25,8 +25,8 @@
 
 <style>
     .page-heading {
-      position: relative;    
-      min-height:70vh; 
+      position: relative;
+      min-height:70vh; /* Adjust as needed */
       height: auto;
       display: flex;
       align-items: center;
@@ -36,7 +36,7 @@
 
     .page-heading .heading-content {
       position: relative;
-      z-index: 3; 
+      z-index: 3; /* makes sure text stays above video */
       color: #fff;
     }
 
@@ -50,7 +50,7 @@
     }
 
     .item-details-page {
-      background: #f3f3f3 !important;
+      background-color: #f3f3f3 !important;
       backdrop-filter: none !important;
       -webkit-backdrop-filter: none !important;
       background-attachment: scroll !important;
@@ -70,16 +70,17 @@
     }
     
     .image {
-      max-width: 100%;  
-      width: 500px;      
-      height: auto;      
-      display: block;    
-      margin: 20px auto;    
+      max-width: 100%;   /* never overflow container */
+      width: 500px;      /* control size (adjust as needed) */
+      height: auto;      /* keep aspect ratio */
+      display: block;    /* removes inline spacing */
+      margin: 10px auto;    /* centers the image */
     }
 
-  .fade-in-section {
+    .fade-in-section {
       background-color: transparent !important;
     }
+
 </style>
 
   </head>
@@ -181,7 +182,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2025 <a href="#">Dakwat & Co</a>, Ltd. All rights reserved.
+          <p>Copyright © 2025 <a href="#">Dakwat Space</a>, Ltd. All rights reserved.
         </div>
       </div>
     </div>
@@ -201,6 +202,3 @@
 
   </body>
 </html>
-
-
-
