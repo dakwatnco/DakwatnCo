@@ -15,7 +15,6 @@
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/templatemo-liberty-market.css">
@@ -42,21 +41,21 @@
     /* Tablet */
     @media (max-width: 992px) {
       model-viewer {
-        height: 350px; /* smaller */
+        height: 350px; 
       }
     }
 
     /* Mobile */
     @media (max-width: 600px) {
       model-viewer {
-        height: 300px; /* much smaller */
+        height: 300px; 
       }
     }
 
     /*animation vr*/
     .model-zoom {
       animation: zoomIn 2s ease-out forwards;
-      transform-origin: center; /* ensures zoom happens from the center */
+      transform-origin: center; 
     }
 
     @keyframes zoomIn {
@@ -96,175 +95,249 @@
       box-shadow: 0 6px 12px rgba(0,0,0,0.25);
     }
 
-.carousel {
-  position: relative;
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s ease;
+    }
+
+    .carousel-slide {
+      flex: 0 0 350px; 
+      margin: 0 15px;
+      position: relative;
+      transition: transform 0.6s ease, z-index 0.6s ease;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      transition: transform 0.4s ease;
+
+    }
+
+    .carousel-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      border-radius: 16px;
+      transition: opacity 0.6s ease;
+      opacity: 1;
+      z-index: 0; 
+      pointer-events: none; 
+    }
+
+    .carousel-slide.focused {
+      transform: scale(1.0);
+      z-index: 3;
+    }
+    .carousel-slide.focused::after {
+      opacity: 0;
+    }
+
+    .carousel-slide.side {
+      transform: scale(0.9);
+      z-index: 2;
+    }
+
+
+    .carousel-slide.far {
+      transform: scale(0.75);
+      z-index: 1;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+    }
+    .carousel-btn.prev { left: 20px; }
+    .carousel-btn.next { right: 20px; }
+
+    /* Ensure the clickable link + hover overlay is above */
+    .slide-link {
+      display: block;
+      position: relative;
+      text-decoration: none;
+      color: inherit;
+      z-index: 1; 
+    }
+    .slide-link img {
+      display: block;
+      width: 100%;
+      border-radius: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .slide-link .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s ease;
+      border-radius: 12px;
+      z-index: 2; 
+      pointer-events: none; 
+    }
+
+    .slide-link .overlay span {
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s ease;
+      pointer-events: none;
+    }
+
+    /* Hover (desktop) */
+    .slide-link:hover img {
+      transform: scale(1.05);
+    }
+    .slide-link:hover .overlay {
+      opacity: 1;
+    }
+    .slide-link:hover .overlay span {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile (simulate click with :active) */
+    .slide-link:active .overlay {
+      opacity: 1;
+    }
+    .slide-link:active .overlay span {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Tablet */
+    @media (max-width: 992px) {
+      .carousel-slide {
+        flex: 0 0 50%; 
+        margin: 0 12px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .carousel-slide {
+        flex: 0 0 60%; 
+        margin: 0 8px;
+      }
+
+      .carousel-btn {
+        font-size: 1.5rem;
+        padding: 6px 10px;
+      }
+
+      .slide-link .overlay span {
+        font-size: 1rem;
+      }
+    }
+
+/* Slideshow Meet Dakwat */
+.slideshow-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px;
+  overflow: hidden;
   margin: 0 auto;
-  overflow: hidden;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.6s ease;
-}
-
-.carousel-slide {
-  flex: 0 0 350px; /* fixed width per slide */
-  margin: 0 15px;
   position: relative;
-  transition: transform 0.6s ease, z-index 0.6s ease;
-  overflow: hidden;
-  border-radius: 12px;
 }
 
-.carousel-slide img {
+/* wrapper of all slides (we slide this) */
+.slides-wrapper {
+  display: flex;
+  transition: transform 1.5s ease;
+  will-change: transform;
+}
+
+.mySlides {
+  flex: 0 0 95%;
+  margin: 0 2.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease;
+}
+
+.mySlides img {
   width: 100%;
-  display: block;
-  border-radius: 12px;
-  transition: transform 0.4s ease;
-
-}
-
-.carousel-slide::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
+  height: auto;
   border-radius: 16px;
-  transition: opacity 0.6s ease;
-  opacity: 1;
-  z-index: 0; /* <--- make sure it stays at the bottom */
-  pointer-events: none; /* <--- don't block clicks */
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Focused slide */
-.carousel-slide.focused {
-  transform: scale(1.0);
-  z-index: 3;
-}
-.carousel-slide.focused::after {
-  opacity: 0;
-}
-
-/* Side slides */
-.carousel-slide.side {
-  transform: scale(0.9);
-  z-index: 2;
-}
-
-/* Far slides */
-.carousel-slide.far {
-  transform: scale(0.75);
-  z-index: 1;
-}
-
-/* Buttons */
-.carousel-btn {
+.dakwat-prev, .dakwat-next {
+  cursor: pointer;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  border: none;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
   color: white;
-  font-size: 2rem;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 10;
-}
-.carousel-btn.prev { left: 20px; }
-.carousel-btn.next { right: 20px; }
-
-/* Ensure the clickable link + hover overlay is above */
-.slide-link {
-  display: block;
-  position: relative;
-  text-decoration: none;
-  color: inherit;
-  z-index: 1; /* <--- above ::after */
-}
-.slide-link img {
-  display: block;
-  width: 100%;
-  border-radius: 12px;
-  position: relative;
-  z-index: 1;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
 }
 
-.slide-link .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  opacity: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.4s ease;
-  border-radius: 12px;
-  z-index: 2; /* <--- above image */
-  pointer-events: none; /* overlay won’t block clicking */
+.dakwat-next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }
 
-.slide-link .overlay span {
-  color: #fff;
-  font-size: 1.4rem;
-  font-weight: 600;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.4s ease;
-  pointer-events: none;
+.dakwat-prev:hover, .dakwat-next:hover {
+  background-color: rgba(0,0,0,0.8);
 }
 
-/* Hover (desktop) */
-.slide-link:hover img {
-  transform: scale(1.05);
-}
-.slide-link:hover .overlay {
-  opacity: 1;
-}
-.slide-link:hover .overlay span {
-  opacity: 1;
-  transform: translateY(0);
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
-/* Mobile (simulate click with :active) */
-.slide-link:active .overlay {
-  opacity: 1;
-}
-.slide-link:active .overlay span {
-  opacity: 1;
-  transform: translateY(0);
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
 }
 
-/* Tablet */
-@media (max-width: 992px) {
-  .carousel-slide {
-    flex: 0 0 50%; /* 50% of screen width */
-    margin: 0 12px;
-  }
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-  .carousel-slide {
-    flex: 0 0 60%; /* slightly smaller than tablet */
-    margin: 0 8px;
-  }
-
-  .carousel-btn {
-    font-size: 1.5rem;
-    padding: 6px 10px;
-  }
-
-  .slide-link .overlay span {
-    font-size: 1rem;
-  }
+@media (max-width: 768px) {
+  .mySlides img { max-height: 70vh; }
 }
-
+@media (max-width: 480px) {
+  .mySlides img { max-height: 60vh; }
+}
   </style>
   </head>
 
@@ -297,7 +370,10 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="index.html" class="active">Home</a></li>
+                        <!--<li><a href="explore.html">Explore</a></li>-->
                         <li><a href="printing.html">Printing</a></li>
+                        <!--<li><a href="details.html">Item Details</a></li>-->
+                        <li><a href="profile.html">Profile</a></li>
                         <li><a href="about us.html">About us</a></li>
                         <li><a href="contact us.html">Contact us</a></li>
                     </ul>   
@@ -494,21 +570,37 @@
                 <div class="line-dec"></div>
                 <h1 class="fontbebas">Meet Dakwat</h1>
               </div>
-              <div class="col-lg-8 mt-4 mt-lg-0 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
-                <p class="text-justify slide-in"> Meet Dakwat: a team that loves to create, build, and transform ideas into something real. 
-                  We’re not just about printing or design, but about making your brand grow with the right tools: 
-                  websites, marketing, apps, and 3D visuals. Think of us as your creative partner, combining 
-                  imagination with technology to craft solutions that fit your journey. Whether you’re starting 
-                  small or scaling big, Dakwat is here to make sure your ideas don’t just stay on paper, 
-                  but come to life beautifully</p>
-                <div class="buttons" style="margin-top: 20px; margin-bottom: 30px;">
-                  <div class="border-button">
-                    <a href="about us.html" >Know more about us</a>
+
+              <div class="slideshow-container">
+                <div class="slides-wrapper">
+                  <div class="mySlides">
+                    <img src="assets/images/General/slideshow/WEBSITE SLIDE-01.webp" style="width:100%">
+                  </div>
+                  <div class="mySlides">
+                    <img src="assets/images/General/slideshow/WEBSITE SLIDE-02.webp" style="width:100%">
+                  </div>
+                  <div class="mySlides">
+                    <img src="assets/images/General/slideshow/WEBSITE SLIDE-03.webp" style="width:100%">
+                  </div>
+                  <div class="mySlides">
+                    <img src="assets/images/General/slideshow/WEBSITE SLIDE-04.webp" style="width:100%">
+                  </div>
+                  <div class="mySlides">
+                    <img src="assets/images/General/slideshow/WEBSITE SLIDE-05.webp" style="width:100%">
+                  </div>
+                  <div class="mySlides">
+                    <img src="assets/images/General/slideshow/WEBSITE SLIDE-06.webp" style="width:100%">
+                  </div>
+                  <div class="mySlides">
+                    <img src="assets/images/General/slideshow/WEBSITE SLIDE-07.webp" style="width:100%">
+                  </div>
+                  <div class="mySlides">
+                    <img src="assets/images/General/slideshow/WEBSITE SLIDE-08.webp" style="width:100%">
+                  </div>
+                  <div class="mySlides">
+                    <img src="assets/images/General/slideshow/WEBSITE SLIDE-09.webp" style="width:100%">
                   </div>
                 </div>
-              </div>
-              <div class="col-lg-4">
-                  <img src="assets/images/General/Meet Dakwat.webp" class="img-fluid" loading="lazy">
               </div>
             </div>
 
@@ -524,10 +616,8 @@
               <img src="assets/images/Brand/White edruze.png" alt="Edruze" class="client-logo" loading="lazy">
               <img src="assets/images/Brand/White aala picasso.png" alt="Aala-picasso" class="client-logo" loading="lazy">
             </div>
-
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -588,7 +678,6 @@
     <img src="assets/images/General/whatsapp.png" alt="WhatsApp" />
   </a>
 
-
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -601,22 +690,20 @@
   <script src="assets/js/popup.js"></script>
   <script src="assets/js/custom.js"></script>
 
-
 <script>
 const track = document.querySelector('.carousel-track');
 const slides = Array.from(document.querySelectorAll('.carousel-slide'));
 const prevBtn = document.querySelector('.carousel-btn.prev');
 const nextBtn = document.querySelector('.carousel-btn.next');
 
-let currentIndex = 1; // since you want 2nd image focused at start
-let slideWidth = slides[0].offsetWidth + 30; // width + margin
+let currentIndex = 1; 
+let slideWidth = slides[0].offsetWidth + 30; 
 let isDragging = false;
 let startX = 0;
 let currentTranslate = 0;
 let prevTranslate = 0;
 let animationID;
 
-// --- Position track initially ---
 function setPosition() {
   const slide = slides[currentIndex];
   const slideStyle = window.getComputedStyle(slide);
@@ -629,7 +716,6 @@ function setPosition() {
 
   track.style.transform = `translateX(${-currentIndex * slideTotalWidth + offset}px)`;
 }
-
 setPosition();
 
 // --- Buttons ---
@@ -644,7 +730,6 @@ nextBtn.addEventListener('click', () => {
   updateFocus();
 });
 
-
 // --- Swipe (touch) ---
 track.addEventListener('touchstart', touchStart);
 track.addEventListener('touchmove', touchMove);
@@ -654,7 +739,7 @@ function touchStart(e) {
   isDragging = true;
   startX = e.touches[0].clientX;
   prevTranslate = getTranslateX();
-  track.style.transition = "none"; // disable smooth for drag
+  track.style.transition = "none"; 
 }
 
 function touchMove(e) {
@@ -723,6 +808,76 @@ for (i = 0; i < acc.length; i++) {
 }
 </script>
 
+<!-- Slideshow meet Dakwat -->
+<script>
+(function(){
+  const dakwatWrapper = document.querySelector('.slides-wrapper');
+  const dakwatSlides = Array.from(document.querySelectorAll('.mySlides'));
+  const prevBtn = document.querySelector('.dakwat-prev');
+  const nextBtn = document.querySelector('.dakwat-next');
+
+  if(!dakwatWrapper || dakwatSlides.length === 0) return;
+
+  const dakwatTotal = dakwatSlides.length;
+  const dakwatFirstClone = dakwatSlides[0].cloneNode(true);
+  dakwatWrapper.appendChild(dakwatFirstClone);
+
+  let dakwatIndex = 0;
+  const dakwatSlideDuration = 3000; 
+  const dakwatTransitionMs = 1500;   
+  let dakwatTimeoutId;
+
+  function dakwatGoToSlide(i, instant = false){
+    dakwatWrapper.style.transition = instant 
+      ? 'none' 
+      : `transform ${dakwatTransitionMs}ms ease`;
+    dakwatWrapper.style.transform = `translateX(-${i * 100}%)`;
+  }
+
+  function dakwatStep(){
+    dakwatIndex++;
+    dakwatGoToSlide(dakwatIndex);
+
+    if(dakwatIndex === dakwatTotal){
+      setTimeout(() => {
+        dakwatIndex = 0;
+        dakwatGoToSlide(dakwatIndex, true);
+      }, dakwatTransitionMs + 20);
+    }
+
+    dakwatTimeoutId = setTimeout(dakwatStep, dakwatSlideDuration);
+  }
+
+  // Start auto-slide
+  dakwatTimeoutId = setTimeout(dakwatStep, dakwatSlideDuration);
+
+  // Manual controls
+  function dakwatNext(){
+    clearTimeout(dakwatTimeoutId);
+    dakwatIndex++;
+    if(dakwatIndex > dakwatTotal - 1){
+      dakwatIndex = 0;
+    }
+    dakwatGoToSlide(dakwatIndex);
+    dakwatTimeoutId = setTimeout(dakwatStep, dakwatSlideDuration);
+  }
+
+  function dakwatPrev(){
+    clearTimeout(dakwatTimeoutId);
+    dakwatIndex--;
+    if(dakwatIndex < 0){
+      dakwatIndex = dakwatTotal - 1;
+    }
+    dakwatGoToSlide(dakwatIndex);
+    dakwatTimeoutId = setTimeout(dakwatStep, dakwatSlideDuration);
+  }
+
+  if(nextBtn) nextBtn.addEventListener('click', dakwatNext);
+  if(prevBtn) prevBtn.addEventListener('click', dakwatPrev);
+
+  window.addEventListener('resize', () => dakwatGoToSlide(dakwatIndex, true));
+})();
+</script>
 
   </body>
 </html>
