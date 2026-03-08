@@ -977,6 +977,13 @@ font-display: swap;
     inset 0 -3px 8px rgba(66, 66, 102, 0.6);
 }
 
+/* Only apply hover if it ALSO has class "hover" */
+.box.btn:hover {
+    background: linear-gradient(180deg, #e6e6e6, #9fd8f5);
+    transform: translateY(-2px);
+    transition: 0.3s ease;
+}
+
 /* Mobile */
 @media (max-width: 600px) {
   .box {
@@ -1170,3 +1177,11 @@ font-display: swap;
     padding-top: 10px;
   }
 }
+
+.full-width-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
