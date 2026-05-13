@@ -1260,6 +1260,7 @@ font-display: swap;
   width:100%;
   gap:20px;
   flex-wrap:nowrap;
+  pointer-events:none;
 }
 
 .photo-layout img{
