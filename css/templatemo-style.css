@@ -943,7 +943,7 @@ font-display: swap;
 
 .fontbebas2{
   font-family: 'MyCustomFont2', sans-serif; /* fallback included */
-  font-size: 30px; 
+  font-size: 35px; 
   margin-bottom: 30px;
 }
 
@@ -1466,7 +1466,6 @@ margin: 0px 20px;
   border-radius: 20px;
 }
 
-/* TEXT */
 
 .location-text h1{
   margin-bottom: 20px;
@@ -1488,4 +1487,158 @@ margin: 0px 20px;
     height: 350px;
   }
 
+}
+
+/*printing.html*/
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.service-img {
+  width: 100%;
+  max-width: 200px; /* Controls container card size */
+  aspect-ratio: 1 / 1; /* Forces perfect squares */
+  background-color: #ffffff; /* Falls back to white placeholder if image paths are missing */
+  border-radius: 24px; /* Gives the smooth round squircle edges */
+  object-fit: cover; /* Keeps imagery inside the box scaled correctly */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.service-img:hover {
+  transform: scale(1.05); /* Adds a subtle zoom interaction when hovered */
+}
+
+.service-label {
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Ensures texts stay highly legible against video wallpaper backgrounds */
+}
+
+/*print_details.html*/
+
+.order-config-card {
+    background-color: #fffffff9;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    color: #333333;
+}
+
+.form-label-header {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #2c3e50;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+}
+
+.option-card-label {
+    cursor: pointer;
+    width: 100%;
+}
+
+.option-card-label input[type="radio"] {
+    display: none;
+}
+
+.option-card-content {
+    background: #f8f9fafc;
+    border: 2px solid #e9ecef;
+    padding: 14px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #495057;
+    transition: all 0.2s ease-in-out;
+}
+
+.option-card-label input[type="radio"]:checked + .option-card-content {
+    border-color: #3498db;
+    background-color: #eaf4fc;
+    color: #2980b9;
+}
+
+.option-card-content:hover {
+    border-color: #bdc3c7;
+}
+
+.custom-dropdown, .form-control {
+    border: 2px solid #e9ecef !important;
+    color: #333 !important;
+    padding: 10px 15px !important;
+}
+
+.price-summary-box {
+    background-color: #efefeff2;
+    border-left: 5px solid #3498db;
+}
+
+.calculated-price-tag {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #2c3e50;
+}
+
+.main-preview-img {
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.thumb-gallery img {
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.thumb-gallery img:hover {
+    transform: scale(1.05);
+}
+
+.category-menu-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #eef2f5;
+}
+
+.category-vertical-links .nav-link {
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-bottom: 1px dashed #f1f4f6;
+    transition: background 0.2s, color 0.2s;
+    border-radius: 8px;
+}
+
+.category-vertical-links .nav-item:last-child .nav-link {
+    border-bottom: none;
+}
+
+.category-vertical-links .nav-link:hover {
+    background-color: #f7f9fa;
+    color: #3498db !important;
+}
+
+.category-vertical-links .active-category {
+    background-color: #f1f9ff !important;
+    font-weight: 600;
+    border-left: 4px solid #359cdc;
+    border-radius: 4px 8px 8px 4px;
+}
+
+.input-group-text {
+    font-size: 0.85rem;
+    font-weight: 500;
 }
