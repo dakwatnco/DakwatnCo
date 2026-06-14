@@ -80,7 +80,7 @@ https://templatemo.com/tm-560-astro-motion
                         <h4 class="fontbebas2 text-dark border-bottom pb-2">Product Categories</h4>
                         <ul class="nav flex-column category-vertical-links">
                             <li class="nav-item">
-                                <a class="nav-link active-category d-flex justify-content-between align-items-center" href="#">
+                                <a class="nav-link text-dark d-flex justify-content-between align-items-center" href="print_sticker.html">
                                     <span>Sticker</span> <i class="fas fa-chevron-right small"></i>
                                 </a>
                             </li>
@@ -90,18 +90,33 @@ https://templatemo.com/tm-560-astro-motion
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark d-flex justify-content-between align-items-center" href="#">
+                                <a class="nav-link text-dark d-flex justify-content-between align-items-center" href="print_tagging_namecard.html">
+                                    <span>Tagging Namecard</span> <i class="fas fa-chevron-right small text-muted"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active-category d-flex justify-content-between align-items-center" href="print_banner_bunting.html">
                                     <span>Banner & Bunting</span> <i class="fas fa-chevron-right small text-muted"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark d-flex justify-content-between align-items-center" href="#">
+                                <a class="nav-link text-dark d-flex justify-content-between align-items-center" href="print_flyers_brochures.html">
                                     <span>Flyers & Brochures</span> <i class="fas fa-chevron-right small text-muted"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark d-flex justify-content-between align-items-center" href="#">
+                                <a class="nav-link text-dark d-flex justify-content-between align-items-center" href="print_businesscard.html">
                                     <span>Business Cards</span> <i class="fas fa-chevron-right small text-muted"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark d-flex justify-content-between align-items-center" href="print_booklet.html">
+                                    <span>Booklet</span> <i class="fas fa-chevron-right small text-muted"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark d-flex justify-content-between align-items-center" href="print_photo.html">
+                                    <span>Photo</span> <i class="fas fa-chevron-right small text-muted"></i>
                                 </a>
                             </li>
                         </ul>
@@ -109,78 +124,75 @@ https://templatemo.com/tm-560-astro-motion
                 </div>
 
                 <div class="col-lg-4 mb-4">
-                    <div class="product-preview-container sticky-top" style="top: 20px;">
-                        <img src="img/About us/DAKWAT PIXEL.jpeg" alt="Sticker Preview" class="img-fluid main-preview-img mb-3 w-100">
+                    <div class="product-preview-container" style="top: 20px;">
+                        <img src="img/Printing/Content/Bunting (1).webp" alt="Sticker Preview" class="img-fluid main-preview-img mb-3 w-100">
                         <div class="d-flex gap-2 thumb-gallery">
-                            <img src="img/About us/DAKWAT PIXEL.jpeg" class="img-thumbnail active-thumb" width="75">
+                            <img src="img/Printing/Content/Bunting (1).webp" class="img-thumbnail active-thumb" width="75">
+                            <img src="img/Printing/Content/Bunting (2).webp" class="img-thumbnail" width="75">
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-5">
                     <div class="order-config-card p-4 shadow-sm text-dark rounded-4">
-                        <h1 class="fontbebas mb-1 text-dark" style="font-size: 38px;">Sticker (by PCS)</h1>
+                        <h1 class="fontbebas mb-1 text-dark" style="font-size: 38px;">Banner & Bunting</h1>
                         <p class="text-muted small">Configure your custom size labels below</p>
                         <hr>
 
                         <form id="print-calculator-form">
                             <div class="form-group mb-3">
-                                <label class="form-label-header">Size Sticker</label>
+                                <label class="form-label-header">Banner / Bunting</label>
+                                <select class="form-select custom-dropdown bg-white" name="type">
+                                    <option value="banner">Banner</option>
+                                    <option value="bunting">Bunting</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label class="form-label-header">Size</label>
                                 <div class="row g-2">
                                     <div class="col-6">
                                         <div class="input-group">
                                             <span class="input-group-text bg-light text-muted small">Width</span>
                                             <input type="number" class="form-control bg-white" name="width" value="1" min="1">
-                                            <span class="input-group-text bg-light text-muted small">CM</span>
+                                            <span class="input-group-text bg-light text-muted small">Feet</span>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="input-group">
                                             <span class="input-group-text bg-light text-muted small">Height</span>
                                             <input type="number" class="form-control bg-white" name="height" value="1" min="1">
-                                            <span class="input-group-text bg-light text-muted small">CM</span>
+                                            <span class="input-group-text bg-light text-muted small">Feet</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- CONTAINER FOR ERROR VALIDATION ALERT TEXT -->
+                            <div id="size-warning-box" class="text-danger small fw-bold mb-3" style="display: none;"></div>
 
                             <div class="form-group mb-3">
-                                <label class="form-label-header">Quantity Sticker <span class="text-muted small fw-normal">(Min: 1)</span></label>
+                                <label class="form-label-header">Design Needed</label>
+                                <select class="form-select custom-dropdown bg-white" name="design">
+                                    <option value="no">No (Ready Design)</option>
+                                    <option value="basic">Yes, Basic Design (+RM15)</option>
+                                    <option value="premium">Yes, Premium Design (+RM30)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label class="form-label-header">Quantity <span class="text-muted small fw-normal">(Min: 1)</span></label>
                                 <input type="number" class="form-control bg-white" name="quantity" value="1" min="1">
                             </div>
 
                             <div class="form-group mb-3">
-                                <label class="form-label-header">Cutting Shape</label>
-                                <select class="form-select custom-dropdown bg-white" name="shape">
-                                    <option value="circle">Circle</option>
-                                    <option value="square">Square / Rectangular</option>
-                                    <option value="custom">Custom Shape</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label class="form-label-header">Cutting Option</label>
-                                <select class="form-select custom-dropdown bg-white" name="cutting_type">
-                                    <option value="kisscut">Kiss Cut</option>
-                                    <option value="diecut">Die Cut</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group mb-4">
-                                <label class="form-label-header">Material</label>
-                                <select class="form-select custom-dropdown bg-white" name="material">
-                                    <option value="simili">Simili (Non-Waterproof)</option>
-                                    <option value="mirrorkote">Mirrorkote (Non-Waterproof)</option>
-                                    <option value="transparent">Transparent (Non-Waterproof)</option>
-                                    <option value="glossy">Glossy (Semi-Waterproof)</option>
-                                    <option value="matte">Matte (Semi-Waterproof)</option>
-                                </select>
+                                <label class="form-label-header">Additional Holes <span class="text-muted small fw-normal">(Min: 0)</span></label>
+                                <input type="number" class="form-control bg-white" name="holes" value="0" min="0">
                             </div>
 
                             <div class="price-summary-box p-3 mb-4 border-start border-danger border-3 rounded-2">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="fw-bold text-secondary text-uppercase" style="font-size: 13px; letter-spacing: 0.5px;">Total:</span>
-                                    <span class="text-danger fw-bolder fs-3">RM <span id="dynamic-total-price">5.39</span></span>
+                                    <span class="text-danger fw-bolder fs-3">RM <span id="dynamic-total-price">2.50</span></span>
                                 </div>
                             </div>
 
@@ -204,7 +216,7 @@ https://templatemo.com/tm-560-astro-motion
             <img src="img/OFFICIAL LOGO CHROME.png" style="max-width: 200px;"> <br>
         </div>
         <div class="col-lg-4 col-md-12 col-12 l20">
-            <h5><b>Dakwat Space Services (SA0638442-V)</b></h5>
+            <h5><b>Dakwat Space Services (JR0183180-V)</b></h5>
             <p style="font-size: medium;">No.38-2 , Jalan Dataran Suria 15/8, 2, Seksyen 15,<br> 42300 Puncak Alam, Selangor <br>
             014 580 0098
             </p>
@@ -252,107 +264,65 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("print-calculator-form");
     if (!form) return;
 
-    // Direct mapping of your physical flyer prices (3cm - 7cm)
-    const flyerPricing = {
-        3: { // 3cm x 3cm
-            tier20:  { simili: 5.00/20,   coated: 7.00/20,   premium: 9.00/20 },
-            tier50:  { simili: 10.00/50,  coated: 17.50/50,  premium: 20.00/50 },
-            tier100: { simili: 16.00/100, coated: 28.00/100, premium: 30.00/100 },
-            tier500: { simili: 50.00/500, coated: 65.00/500, premium: 85.00/500 }
-        },
-        4: { // 4cm x 4cm
-            tier20:  { simili: 5.00/10,   coated: 7.00/10,   premium: 9.00/10 },
-            tier50:  { simili: 15.00/50,  coated: 22.50/50,  premium: 25.00/50 },
-            tier100: { simili: 23.50/100, coated: 37.00/100, premium: 41.40/100 },
-            tier500: { simili: 75.00/500, coated: 128.00/500,premium: 153.60/500 }
-        },
-        5: { // 5cm x 5cm
-            tier20:  { simili: 5.00/10,   coated: 7.00/10,   premium: 9.00/10 },
-            tier50:  { simili: 20.00/50,  coated: 27.50/50,  premium: 30.00/50 },
-            tier100: { simili: 30.20/100, coated: 44.30/100, premium: 48.60/100 },
-            tier500: { simili: 100.80/500,coated: 176.40/500,premium: 186.50/500 }
-        },
-        6: { // 6cm x 6cm
-            tier20:  { simili: 5.00/10,   coated: 7.00/10,   premium: 9.00/10 },
-            tier50:  { simili: 25.00/50,  coated: 32.50/50,  premium: 35.00/50 },
-            tier100: { simili: 44.30/100, coated: 59.40/100, premium: 64.80/100 },
-            tier500: { simili: 176.40/500,coated: 241.90/500,premium: 186.50/500 }
-        },
-        7: { // 7cm x 7cm
-            tier20:  { simili: 5.00/10,   coated: 7.00/10,   premium: 9.00/10 },
-            tier50:  { simili: 30.00/50,  coated: 37.50/50,  premium: 40.00/50 },
-            tier100: { simili: 50.00/100, coated: 63.20/100, premium: 66.30/100 },
-            tier500: { simili: 201.60/500,coated: 272.20/500,premium: 287.30/500 }
-        }
-    };
-
-    function calculateStickerPrice() {
+    function calculateBannerBuntingPrice() {
+        const type = form.elements["type"].value;
         const width = parseFloat(form.elements["width"].value) || 0;
         const height = parseFloat(form.elements["height"].value) || 0;
+        const designChoice = form.elements["design"].value;
         const quantity = parseInt(form.elements["quantity"].value) || 0;
-        const selectedMaterial = form.elements["material"].value;
+        const holes = parseInt(form.elements["holes"].value) || 0;
 
+        const warningBox = document.getElementById("size-warning-box");
+        const priceDisplay = document.getElementById("dynamic-total-price");
+
+        // Safety fallback checks
         if (width <= 0 || height <= 0 || quantity <= 0) {
-            document.getElementById("dynamic-total-price").textContent = "0.00";
+            priceDisplay.textContent = "0.00";
+            if (warningBox) warningBox.style.display = "none";
             return;
         }
 
-        // 1. RECTANGLE TO SQUARE BOUNDING CONCEPT
-        // Find the maximum value to isolate layout limits
-        const targetDimension = Math.max(width, height);
-
-        // 2. FIND CORRESPONDING FLYER BRACKET (3cm to 7cm)
-        let matchedCm = 3;
-        if (targetDimension <= 3) matchedCm = 3;
-        else if (targetDimension <= 4) matchedCm = 4;
-        else if (targetDimension <= 5) matchedCm = 5;
-        else if (targetDimension <= 6) matchedCm = 6;
-        else matchedCm = 7; // Lock onto 7cm rate array if larger
-
-        // 3. MAP THE HTML MATERIAL DROPDOWN VALUE
-        let materialGroup = "simili";
-        if (selectedMaterial === "mirrorkote") {
-            materialGroup = "coated";
-        } else if (["transparent", "glossy", "matte"].includes(selectedMaterial)) {
-            materialGroup = "premium";
+        // 1. ENFORCE BUNTING PIPE MAX LIMITATION RULE
+        if (type === "bunting" && width > 2) {
+            if (warningBox) {
+                warningBox.textContent = "⚠️ Bunting width cannot exceed 2 Feet due to maximum pipe size constraints.";
+                warningBox.style.display = "block";
+            }
+            priceDisplay.closest(".fs-3").innerHTML = `<span id="dynamic-total-price" style="font-size: 22px;">Size Not Valid</span>`;
+            return;
+        } else {
+            if (warningBox) warningBox.style.display = "none";
         }
 
-        // 4. CHOOSE QUANTITY TIER BRACKET ACCORDING TO YOUR RULE
-        // Note: For 4cm-7cm flyers, the lowest tier says 10pcs but matches your 20pcs calculation rule
-        let activeTierName;
-        if (quantity <= 20) activeTierName = "tier20";
-        else if (quantity <= 50) activeTierName = "tier50";
-        else if (quantity <= 100) activeTierName = "tier100";
-        else activeTierName = "tier500";
+        // 2. CHOOSE BASE MATERIAL SQUARE FOOTAGE PRICE RATE
+        const ratePerSqFt = (designChoice === "no") ? 2.50 : 2.00;
 
-        // Extract base unit price from active flyer matrix data
-        const basePricePerPiece = flyerPricing[matchedCm][activeTierName][materialGroup];
+        // 3. BASE SQUARE FOOTAGE CALCULATION
+        const squareFeet = width * height;
+        const printCostPerUnit = squareFeet * ratePerSqFt;
 
-        // 5. SAFETY FALLBACK FOR OVER-SIZED ITEMS (> 7cm)
-        // If size is larger than 7cm, scale the price proportionally up based on area
-        let finalPricePerPiece = basePricePerPiece;
-        if (targetDimension > 7) {
-            const userArea = targetDimension * targetDimension;
-            const flyerMaxArea = 49; // 7cm x 7cm
-            finalPricePerPiece = basePricePerPiece * (userArea / flyerMaxArea);
+        // 4. PROCESS ADDITIONAL PIECE OPTION CHARGES
+        const holesChargePerUnit = holes * 0.50;
+        
+        // Sum up unit charges before quantity scaling
+        const totalCostPerUnit = printCostPerUnit + holesChargePerUnit;
+        let grandTotal = totalCostPerUnit * quantity;
+
+        // 5. ADD FLAT FLUID DESIGN EXTRA FEE
+        if (designChoice === "basic") {
+            grandTotal += 15.00;
+        } else if (designChoice === "premium") {
+            grandTotal += 30.00;
         }
 
-        // 6. COMPUTE GRAND TOTAL
-        let grandTotal = finalPricePerPiece * quantity;
-
-        // Apply a safe global minimum order floor matching your smallest flyer baseline price
-        if (grandTotal < 5.00) {
-            grandTotal = 5.00;
-        }
-
-        // Output final clean layout string to frontend card
-        document.getElementById("dynamic-total-price").textContent = grandTotal.toFixed(2);
+        // Output final layout string update safely
+        priceDisplay.closest(".fs-3").innerHTML = `RM <span id="dynamic-total-price">${grandTotal.toFixed(2)}</span>`;
     }
 
-    form.addEventListener("input", calculateStickerPrice);
-    form.addEventListener("change", calculateStickerPrice);
+    form.addEventListener("input", calculateBannerBuntingPrice);
+    form.addEventListener("change", calculateBannerBuntingPrice);
 
-    calculateStickerPrice();
+    calculateBannerBuntingPrice();
 });
 
 </script>

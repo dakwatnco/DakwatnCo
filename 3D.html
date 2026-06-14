@@ -34,7 +34,40 @@ https://templatemo.com/tm-560-astro-motion
     background-color: #222;
     padding: 2px 16px;
     color: white;
+    font-size: clamp(12px, 1.6vw, 32px);
   }
+
+
+  /* --- UPDATE YOUR EXISTING MEDIA QUERY AREA --- */
+@media (max-width: 992px) {
+  .caption-container {
+    padding: 0px;
+  }
+  
+  /* Forces the thumbnail container row to shed outer grid padding */
+  .container .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Removes spacing and ensures thumbnails touch perfectly side-by-side */
+  .column {
+    width: 20% !important; /* Forces 5 items per line cleanly */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Ensures the slider image block doesn't bleed hidden baseline margins */
+  .demo {
+    display: block;
+    width: 100%;
+    margin: 0 !important;
+  }
+}
 
   .row:after {
     content: "";
@@ -114,17 +147,18 @@ https://templatemo.com/tm-560-astro-motion
     <div class="container-fluid tm-content-container">
 
       <div class="d-flex position-relative tm-border-top intro-container text-center"></div>
-      <div class="tm-border-bottom text-center fade-slide-down">
+      
+      <div class="text-center fade-slide-down">
         <div class="title"><h1 class="fontbebas">3D DESIGN</h1></div>
         <div class="row align-items-center">
-          <div class="col-lg-3">
+          <div class="col-lg-4">
             <video class="hero-video" autoplay loop muted playsinline preload="auto">
               <source src="img/3D/3D design vid.webm" type="video/webm">
               Your browser does not support HTML video.
             </video>
           </div>
-          <div class="col-lg-9 hero-text">
-            <p style="margin: 0px 20px; color: aliceblue; text-align: justify;">
+          <div class="col-lg-8 hero-text">
+            <p class="image-text" style="color: aliceblue; ">
               At Dakwat, our 3D Design team covers a wide range of services from concept development to high-quality rendering. We create detailed and realistic 3D models tailored for various purposes, including product visualization, architecture, advertising, and production.
               <br><br>
               Our expertise includes product modeling, furniture and object modeling, architectural and interior modeling, structural and engineering visualization, as well as character and mascot modeling. We also produce photo-realistic renders, walkthrough animations, VR/AR-ready assets, and 3D print files (STL/OBJ) for prototypes or presentations.
@@ -133,7 +167,7 @@ https://templatemo.com/tm-560-astro-motion
         </div>
       </div>
 
-      <div class="tm-border-bottom text-center">
+      <div class=" text-center">
         <div class="title"><h1 class="fontbebas">3D MODELING</h1></div>
 
         <div class="title"><h2 class="fontbebas2">Top Project</h2></div>
@@ -181,23 +215,34 @@ https://templatemo.com/tm-560-astro-motion
             <img src="img/3D/IR1.webp" alt="interior">
           </div>
           <div class="project-card">
+            <img src="img/3D/IR2.webp" alt="interior">
+          </div>
+          <div class="project-card">
+            <img src="img/3D/IR3.webp" alt="interior">
+          </div>
+        </div>
+        <div class="projects-grid" style="padding-top: 20px;">
+          <div class="project-card">
+            <img src="img/3D/IR4.webp" alt="interior">
+          </div>
+          <div class="project-card">
+            <img src="img/3D/IR5.webp" alt="interior">
+          </div>
+          <div class="project-card">
+            <img src="img/3D/IR6.webp" alt="interior">
+          </div>
+        </div>
+        <div class="projects-grid" style="padding-top: 20px;">
+          <div class="project-card">
             <img src="img/3D/IR7.webp" alt="interior">
           </div>
           <div class="project-card">
             <img src="img/3D/IR8.webp" alt="interior">
           </div>
-        </div>
-        <div class="projects-grid" style="padding-top: 20px;">
           <div class="project-card">
             <img src="img/3D/IR9.webp" alt="interior">
           </div>
-          <div class="project-card">
-            <img src="img/3D/IR10.webp" alt="interior">
-          </div>
         </div>
-
-        <div class="title"><h1 class="fontbebas2">Product</h1></div>
-        <img src="img/3D/3D product.webp" style="width:80%">
 
         <div class="title"><h1 class="fontbebas2">Characters and Assets</h1></div>
         <div class="container">
@@ -246,7 +291,7 @@ https://templatemo.com/tm-560-astro-motion
 
       </div>
 
-      <div class="tm-border-bottom text-center">
+      <div class="text-center">
         <div class="title"><h1 class="fontbebas">3D ANIMATION</h1></div>
 
         <div class="row">
@@ -267,6 +312,12 @@ https://templatemo.com/tm-560-astro-motion
         </div>
       </div>
 
+      <div class="row text-center mt-5 mb-3">
+        <div class="col-12">
+          <img src="img/Printing/CHARACTERS.webp" alt="Character" class="img-fluid mt-3" style="max-height: 250px;">
+        </div>
+      </div>
+
     </div>
 
   </div>
@@ -278,7 +329,7 @@ https://templatemo.com/tm-560-astro-motion
           <img src="img/OFFICIAL LOGO CHROME.png" style="max-width: 200px;"> <br>
         </div>
         <div class="col-lg-4 col-md-12 col-12 l20">
-          <h5><b>Dakwat Space Services (SA0638442-V)</b></h5>
+          <h5><b>Dakwat Space Services (JR0183180-V)</b></h5>
           <p style="font-size: medium;">No.38-2 , Jalan Dataran Suria 15/8, 2, Seksyen 15,<br> 42300 Puncak Alam, Selangor <br>
           014 580 0098
           </p>
@@ -354,5 +405,4 @@ function showSlides(n) {
 </script>
 
 </body>
-
 </html>
