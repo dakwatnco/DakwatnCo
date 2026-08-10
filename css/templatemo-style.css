@@ -969,7 +969,7 @@ border-top-color: #f9c922; /* Chrome, Opera 15+, Safari 5+ */ animation: spin 1.
 
 @font-face {
 font-family: 'MyCustomFont2';
-src: url('../webfonts/BebasNeue-Regular.otf') format('truetype');
+src: url('../webfonts/Poppins-SemiBold.ttf') format('truetype');
 font-weight: normal;
 font-style: normal;
 font-display: swap;
@@ -1404,19 +1404,34 @@ color: white;
 }
 
 /*Photo*/
+
+
+/* TEXT */
 .photo-text{
-  max-width: 1000px;  
-  margin: 0 auto;     
-  padding: 0 30px;     
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 40px 40px;
+  color: white;
+  text-align: justify;
 }
 
 .photo-text p{
   color: aliceblue;
   text-align: center;
   line-height: 1.8;
-  margin: 0px 20px;
+
 }
 
+@media(max-width:768px){
+    .photo-text p{
+    margin: 0px 0px;
+    font-size: 13px;
+    }
+    .photo-text{    
+    padding: 0 1px 1px;
+      margin: 0px;
+    }
+}
 
 /* ===== SLIDER ===== */
 
@@ -1447,15 +1462,6 @@ color: white;
   transform: scale(1);
 }
 
-/* TEXT */
-.photo-text{
-  max-width: 1100px;
-  margin: auto;
-  padding: 0 40px 40px;
-  color: white;
-  text-align: justify;
-}
-
 /* ARROWS */
 .slick-prev,
 .slick-next{
@@ -1474,9 +1480,7 @@ color: white;
   .slider-item img{
     height: 320px;
   }
-  .photo-text{
-    padding: 0 20px 30px;
-  }
+
 }
 
 .padding-img-text {
@@ -1484,11 +1488,19 @@ margin: 20px;
 }
 
 .image-text{
-margin: 10px 20px;
+margin: 10px 100px 10px 0px;
 text-align: justify;
-font-size: clamp(12px, 1.4vw, 25px);
+font-size: clamp(12px, 1.2vw, 22px);
 color: aliceblue;
 }
+
+.image-text-2{
+margin: 0px 0px 0px 20px;
+color: aliceblue;
+text-align: justify;
+font-size: clamp(12px, 1.2vw, 22px);
+}
+
 
 .image-text-home{
 margin-left:20px;
@@ -1498,10 +1510,46 @@ color: aliceblue;
 text-align: justify;
 line-height: 1.2;
 }
+.video-photograph{
+padding-right: 100px;
+}
+.video-photograph-1{
+float: right;
+}
 
 @media(max-width:768px){
     .image-text-home{
     margin-left:0px;
+    }
+
+    .image-text {
+    margin: 10px 10px 10px 10px;
+    text-align: center;
+    }
+
+    .image-text-2 {
+    margin: 10px 30px 10px 30px;
+    text-align: center;
+    }
+
+    .image-title-2 {
+    text-align: center;
+    }
+
+    .image-title {
+    text-align: center;
+    }
+
+    .video-photograph{
+    padding-right: 0px;
+    text-align: center;
+    padding-top: 50px;
+    }
+
+    .video-photograph-1{
+    float:none;
+    text-align: center;
+    padding-bottom: 40px;
     }
 }
 
@@ -1791,3 +1839,4 @@ line-height: 1.2;
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
     outline: none;
 }
+
