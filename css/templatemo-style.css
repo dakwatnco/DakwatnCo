@@ -1157,14 +1157,17 @@ color: white;
 
 @media (max-width: 992px) {
     .video-container {
-        margin: 0px; 
+        margin: 0px 10px; 
     }
 }
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /*grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
     gap: 20px;
+    justify-content: center; /* Centers cards horizontally */
+    align-items: center;     /* Centers cards vertically if heights differ */
+    flex-wrap: wrap; 
 }
 
 .project-card {
@@ -1346,7 +1349,7 @@ color: white;
   .side-video{
     width:90%;
     max-width:350px;
-    height:620px;
+    height:450px;
     margin:0;
     opacity:1;
     transform:none;
