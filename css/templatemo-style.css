@@ -1915,7 +1915,9 @@ max-width: 200px;
     padding-left: 8px !important;
     padding-right: 8px !important;
     }
+}
 
+@media(max-width:991px){
     .printing_image{
     padding-left: 0px;
     }
