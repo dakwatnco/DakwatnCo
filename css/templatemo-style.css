@@ -6,6 +6,20 @@ https://templatemo.com/tm-560-astro-motion
 
 */
 
+/* 1. This applies to the entire webpage framework */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: clip; /* 👈 This completely cuts off the hidden side scroll */
+}
+
+/* 2. Keeps all layout items tightly structured inside their boxes */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 html, body, .page-container {
     min-height: 100%;
 }
@@ -1164,10 +1178,17 @@ color: white;
 .projects-grid {
     display: grid;
     /*grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
+    grid-template-columns: 1fr; 
     gap: 20px;
     justify-content: center; /* Centers cards horizontally */
     align-items: center;     /* Centers cards vertically if heights differ */
-    flex-wrap: wrap; 
+    /*flex-wrap: wrap;*/
+}
+
+@media (min-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr); 
+    }
 }
 
 .project-card {
@@ -1186,6 +1207,7 @@ color: white;
 .project-card:hover img {
     transform: scale(1.05);
 }
+
 
 /*about us*/
 .div-img {
@@ -1503,7 +1525,6 @@ color: aliceblue;
 text-align: justify;
 font-size: clamp(12px, 1.2vw, 22px);
 }
-
 
 .image-text-home{
 margin-left:20px;
@@ -1841,5 +1862,25 @@ float: right;
     border-color: #3498db !important;
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
     outline: none;
+}
+
+.logo-top {
+max-width: 200px;
+}
+
+.logo-bottom {
+max-width: 200px;
+}
+
+@media(max-width:768px){
+
+    .logo-top {
+    max-width: 150px;
+    }
+
+    .logo-bottom {
+    max-width: 180px;
+    }
+
 }
 
