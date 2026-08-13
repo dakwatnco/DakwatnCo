@@ -71,7 +71,7 @@ https://templatemo.com/tm-560-astro-motion
     </div>
 
     <div class="container-fluid tm-content-container">
-        <div class="container-fluid my-5 px-4">
+        <div class="container-fluid my-5 px-1">
             <div class="row">
                 
                 <!-- 1. LEFT COLUMN: Product Categories Menu List -->
@@ -125,9 +125,9 @@ https://templatemo.com/tm-560-astro-motion
 
                 <div class="col-lg-4 mb-4">
                     <div class="product-preview-container" style="top: 20px;">
-                        <img src="img/Printing/Content/ID Card Lanyard (1).webp" alt="Sticker Preview" class="img-fluid main-preview-img mb-3 w-100">
-                        <div class="d-flex gap-2 thumb-gallery">
-                            <img src="img/Printing/Content/ID Card Lanyard (1).webp" class="img-thumbnail active-thumb" width="75">
+                        <img src="img/Printing/Content/ID Card Lanyard (1).webp" id="mainPreview" alt="Sticker Preview" class="img-fluid main-preview-img mb-3 w-100">
+                        <div class="d-flex thumb-gallery">
+                            <img src="img/Printing/Content/ID Card Lanyard (1).webp" class="img-thumbnail active-thumb">
                         </div>
                     </div>
                 </div>
@@ -295,6 +295,22 @@ document.addEventListener("DOMContentLoaded", function () {
     calculateLanyardTagPrice();
 });
 
+</script>
+
+<script>
+  document.querySelectorAll('.thumb-gallery img').forEach(thumbnail => {
+    thumbnail.addEventListener('click', function() {
+      // 1. Get the source path of the clicked thumbnail
+      const newSrc = this.getAttribute('src');
+      
+      // 2. Update the main preview image src
+      document.getElementById('mainPreview').setAttribute('src', newSrc);
+      
+      // 3. Optional: Update active border visual indicator
+      document.querySelectorAll('.thumb-gallery img').forEach(img => img.classList.remove('active-thumb'));
+      this.classList.add('active-thumb');
+    });
+  });
 </script>
 
 </body>
