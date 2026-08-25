@@ -140,7 +140,7 @@ https://templatemo.com/tm-560-astro-motion
 
                         <form id="print-calculator-form">
                             <div class="form-group mb-3">
-                                <label class="form-label-header">Size Tagging</label>
+                                <label class="form-label-header">Size Tagging <span class="text-muted small fw-normal">(Min: 3cm)</span></label>
                                 <div class="row g-2">
                                     <!-- Width Column -->
                                     <div class="col-6">
@@ -151,8 +151,8 @@ https://templatemo.com/tm-560-astro-motion
                                                 inputmode="decimal" 
                                                 class="form-control mobile-optimized-input bg-white w-100" 
                                                 name="width" 
-                                                value="1" 
-                                                min="1">
+                                                value="3" 
+                                                min="3">
                                         </div>
                                     </div>
                                     <!-- Height Column -->
@@ -164,16 +164,19 @@ https://templatemo.com/tm-560-astro-motion
                                                 inputmode="decimal" 
                                                 class="form-control mobile-optimized-input bg-white w-100" 
                                                 name="height" 
-                                                value="1" 
-                                                min="1">
+                                                value="3" 
+                                                min="3">
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
+                            <!-- MATCHED CONTAINER FOR ERROR VALIDATION ALERT TEXT -->
+                            <div id="size-warning-box" class="text-danger small fw-bold mb-3" style="display: none;"></div>
+
                             <div class="form-group mb-3">
-                                <label class="form-label-header">Quantity Tagging <span class="text-muted small fw-normal">(Min: 1)</span></label>
-                                <input type="number" class="form-control bg-white" name="quantity" value="1" min="1">
+                                <label class="form-label-header">Quantity Tagging <span class="text-muted small fw-normal">(Min: 5)</span></label>
+                                <input type="number" class="form-control bg-white" name="quantity" value="5" min="5">
                             </div>
 
                             <div class="form-group mb-3">
@@ -268,66 +271,103 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("print-calculator-form");
     if (!form) return;
 
-function calculateTaggingPrice() {
-    const width = parseFloat(form.elements["width"].value) || 0;
-    const height = parseFloat(form.elements["height"].value) || 0;
-    const quantity = parseInt(form.elements["quantity"].value) || 0;
-    const selectedMaterial = form.elements["material"]?.value;
+    function calculateTaggingPrice() {
+        const width = parseFloat(form.elements["width"].value) || 0;
+        const height = parseFloat(form.elements["height"].value) || 0;
+        const quantity = parseInt(form.elements["quantity"].value) || 0;
+        const selectedMaterial = form.elements["material"]?.value;
 
-    if (width <= 0 || height <= 0 || quantity <= 0) {
-        document.getElementById("dynamic-total-price").textContent = "0.00";
-        return;
+        const warningBox = document.getElementById("size-warning-box");
+        const priceDisplay = document.getElementById("dynamic-total-price");
+
+        // 1. ENFORCE TAGGING MIN SIZE LIMITATION RULE 
+        if ((width > 0 && width < 3) || (height > 0 && height < 3)) {
+            if (warningBox) {
+                warningBox.textContent = "⚠️ Tagging dimensions cannot be below 3cm.";
+                warningBox.style.display = "block";
+            }
+            if (priceDisplay && priceDisplay.closest(".fs-3")) {
+                priceDisplay.closest(".fs-3").innerHTML = `<span id="dynamic-total-price" style="font-size: 22px;">Size Not Valid</span>`;
+            }
+            return;
+        }
+
+        // 2. ENFORCE TAGGING MIN QUANTITY LIMITATION RULE
+        if (quantity > 0 && quantity < 5) {
+            if (warningBox) {
+                warningBox.textContent = "⚠️ Tagging minimum order quantity is 5 pieces.";
+                warningBox.style.display = "block";
+            }
+            if (priceDisplay && priceDisplay.closest(".fs-3")) {
+                priceDisplay.closest(".fs-3").innerHTML = `<span id="dynamic-total-price" style="font-size: 22px;">Quantity Not Valid</span>`;
+            }
+            return;
+        }
+
+        // Clear warning display if all validation filters pass successfully
+        if (warningBox) warningBox.style.display = "none";
+
+        // Safety fallback checks for zero/empty inputs
+        if (width <= 0 || height <= 0 || quantity <= 0) {
+            if (priceDisplay && priceDisplay.closest(".fs-3")) {
+                priceDisplay.closest(".fs-3").innerHTML = `RM <span id="dynamic-total-price">0.00</span>`;
+            }
+            return;
+        }
+
+        // 3. Get the largest side to determine the bounding box size
+        const targetDimension = Math.max(width, height);
+
+        // 4. Determine how many pieces fit on 1 sheet based on your layout sizes
+        let pcsPerSheet = 18; 
+        if (targetDimension <= 3) {
+            pcsPerSheet = 18; // 3cm -> 18 pcs
+        } else if (targetDimension <= 4) {
+            pcsPerSheet = 16; // 4cm -> 16 pcs
+        } else if (targetDimension <= 5) {
+            pcsPerSheet = 12; // 5cm -> 12 pcs
+        } else if (targetDimension <= 6) {
+            pcsPerSheet = 8;  // 6cm -> 8 pcs
+        } else if (targetDimension <= 7) {
+            pcsPerSheet = 6;  // 7cm -> 6 pcs
+        } else {
+            // Safe automatic fallback calculation for items larger than 7cm
+            const userArea = targetDimension * targetDimension;
+            pcsPerSheet = Math.floor((49 / userArea) * 6); 
+            if (pcsPerSheet < 1) pcsPerSheet = 1; // At least 1 piece fits per sheet
+        }
+
+        // 5. Define the sheet base costs
+        let artcardCost = 1.70; // Your original base printing cost
+        const cuttingCost = 1.00;
+        const punchingCost = 1.00;
+
+        // OPTIONAL: Adjust the base artcard cost if they select premium materials later
+        if (selectedMaterial === "ivorypaper") {
+            artcardCost = 1.80; // Example premium cost per sheet
+        }
+
+        // Total flat cost per sheet
+        const totalCostPerSheet = artcardCost + cuttingCost + punchingCost;
+
+        // 6. Calculate exactly how many sheets are needed (Rounds UP to nearest whole sheet)
+        const sheetsNeeded = Math.ceil(quantity / pcsPerSheet);
+
+        // 7. Compute grand total
+        const grandTotal = sheetsNeeded * totalCostPerSheet;
+
+        // Output final layout string update safely matching banner/sticker design structure
+        if (priceDisplay && priceDisplay.closest(".fs-3")) {
+            priceDisplay.closest(".fs-3").innerHTML = `RM <span id="dynamic-total-price">${grandTotal.toFixed(2)}</span>`;
+        }
     }
 
-    // 1. Get the largest side to determine the bounding box size
-    const targetDimension = Math.max(width, height);
-
-    // 2. Determine how many pieces fit on 1 sheet based on your layout sizes
-    let pcsPerSheet = 18; 
-    if (targetDimension <= 3) {
-        pcsPerSheet = 18; // 3cm -> 18 pcs
-    } else if (targetDimension <= 4) {
-        pcsPerSheet = 16; // 4cm -> 16 pcs
-    } else if (targetDimension <= 5) {
-        pcsPerSheet = 12; // 5cm -> 12 pcs
-    } else if (targetDimension <= 6) {
-        pcsPerSheet = 8;  // 6cm -> 8 pcs
-    } else if (targetDimension <= 7) {
-        pcsPerSheet = 6;  // 7cm -> 6 pcs
-    } else {
-        // Safe automatic fallback calculation for items larger than 7cm
-        const userArea = targetDimension * targetDimension;
-        pcsPerSheet = Math.floor((49 / userArea) * 6); 
-        if (pcsPerSheet < 1) pcsPerSheet = 1; // At least 1 piece fits per sheet
-    }
-
-    // 3. Define the sheet base costs
-    let artcardCost = 1.70; // Your original base printing cost
-    const cuttingCost = 1.00;
-    const punchingCost = 1.00;
-
-    // OPTIONAL: Adjust the base artcard cost if they select premium materials later
-    if (selectedMaterial === "ivorypaper") {
-        artcardCost = 1.80; // Example premium cost per sheet
-    }
-
-    // Total flat cost per sheet
-    const totalCostPerSheet = artcardCost + cuttingCost + punchingCost;
-
-    // 4. Calculate exactly how many sheets are needed (Rounds UP to nearest whole sheet)
-    const sheetsNeeded = Math.ceil(quantity / pcsPerSheet);
-
-    // 5. Compute grand total
-    const grandTotal = sheetsNeeded * totalCostPerSheet;
-
-    // Output to your HTML total display box
-    document.getElementById("dynamic-total-price").textContent = grandTotal.toFixed(2);
-}
     form.addEventListener("input", calculateTaggingPrice);
     form.addEventListener("change", calculateTaggingPrice);
 
     calculateTaggingPrice();
 });
+
 
 </script>
 
