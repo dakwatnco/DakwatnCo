@@ -139,36 +139,11 @@ https://templatemo.com/tm-560-astro-motion
                         <hr>
 
                         <form id="print-calculator-form">
-                            <div class="form-group mb-3">
+                            <div class="form-group mb-4">
                                 <label class="form-label-header">Size Tagging</label>
-                                <div class="row g-2">
-                                    <!-- Width Column -->
-                                    <div class="col-6">
-                                        <div class="custom-mobile-input-box position-relative">
-                                            <label class="mobile-input-tag">Width (CM)</label>
-                                            <input type="number" 
-                                                step="any" 
-                                                inputmode="decimal" 
-                                                class="form-control mobile-optimized-input bg-white w-100" 
-                                                name="width" 
-                                                value="1" 
-                                                min="1">
-                                        </div>
-                                    </div>
-                                    <!-- Height Column -->
-                                    <div class="col-6">
-                                        <div class="custom-mobile-input-box position-relative">
-                                            <label class="mobile-input-tag">Height (CM)</label>
-                                            <input type="number" 
-                                                step="any" 
-                                                inputmode="decimal" 
-                                                class="form-control mobile-optimized-input bg-white w-100" 
-                                                name="height" 
-                                                value="1" 
-                                                min="1">
-                                        </div>
-                                    </div>
-                                </div>
+                                <select class="form-select custom-dropdown bg-white" name="size">
+                                    <option value="A6">A6</option>
+                                </select>
                             </div>
 
                             <div class="form-group mb-3">
@@ -251,50 +226,42 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("print-calculator-form");
     if (!form) return;
 
-    function calculateLanyardTagPrice() {
-        const width = parseFloat(form.elements["width"].value) || 0;
-        const height = parseFloat(form.elements["height"].value) || 0;
+    function calculateNamecardTaggingPrice() {
+        const sizeChoice = form.elements["size"]?.value;
         const quantity = parseInt(form.elements["quantity"].value) || 0;
 
-        if (width <= 0 || height <= 0 || quantity <= 0) {
-            document.getElementById("dynamic-total-price").textContent = "0.00";
+        const warningBox = document.getElementById("size-warning-box");
+        const priceDisplay = document.getElementById("dynamic-total-price");
+
+        // Clear warning display if quantity requirement is met
+        if (warningBox) warningBox.style.display = "none";
+
+        // Safety fallback check for empty or zero inputs
+        if (!sizeChoice || quantity <= 0) {
+            if (priceDisplay && priceDisplay.closest(".fs-3")) {
+                priceDisplay.closest(".fs-3").innerHTML = `RM <span id="dynamic-total-price">0.00</span>`;
+            }
             return;
         }
 
-        // 1. Get the short side and long side to handle landscape or portrait input safely
-        const shortSide = Math.min(width, height);
-        const longSide = Math.max(width, height);
+        // 2. CHOOSE BASE PRICE PER PIECE ACCORDING TO QUANTITY
+        // 20 or more = RM0.80/pc | Less than 20 = RM1.40/pc
+        let pricePerPiece = (quantity >= 20) ? 0.80 : 1.40;
 
-        // 2. Determine price per piece based on standard bounding sizes
-        let pricePerPiece = 0;
-
-        // A6 Dimension Threshold: 10.5cm x 14.8cm
-        if (shortSide <= 10.5 && longSide <= 14.8) {
-            pricePerPiece = 0.80; // Anything A6 and below
-        } 
-        // A5 Dimension Threshold: 14.8cm x 21.0cm
-        else if (shortSide <= 14.8 && longSide <= 21.0) {
-            pricePerPiece = 1.60; // Above A6 up to A5 size
-        } 
-        // Over A5 fallback logic
-        else {
-            // If it exceeds A5, it doubles the A5 price as a safe baseline ceiling
-            pricePerPiece = 3.20; 
-        }
-
-        // 3. Compute grand total directly per piece multiplied by quantity
+        // 3. COMPUTE GRAND TOTAL
         const grandTotal = pricePerPiece * quantity;
 
-        // Output to your total summary layout box
-        document.getElementById("dynamic-total-price").textContent = grandTotal.toFixed(2);
+        // Output final layout string update safely matching banner/sticker design structure
+        if (priceDisplay && priceDisplay.closest(".fs-3")) {
+            priceDisplay.closest(".fs-3").innerHTML = `RM <span id="dynamic-total-price">${grandTotal.toFixed(2)}</span>`;
+        }
     }
 
-    form.addEventListener("input", calculateLanyardTagPrice);
-    form.addEventListener("change", calculateLanyardTagPrice);
+    form.addEventListener("input", calculateNamecardTaggingPrice);
+    form.addEventListener("change", calculateNamecardTaggingPrice);
 
-    calculateLanyardTagPrice();
+    calculateNamecardTaggingPrice();
 });
-
 </script>
 
 <script>

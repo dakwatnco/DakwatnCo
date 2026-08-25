@@ -145,7 +145,7 @@ https://templatemo.com/tm-560-astro-motion
 
                         <form id="print-calculator-form">
                             <div class="form-group mb-3">
-                                <label class="form-label-header">Size Sticker</label>
+                                <label class="form-label-header">Size Sticker <span class="text-muted small fw-normal">(Min: 3cm)</span></label>
                                 <div class="row g-2">
                                     <!-- Width Column -->
                                     <div class="col-6">
@@ -156,8 +156,8 @@ https://templatemo.com/tm-560-astro-motion
                                                 inputmode="decimal" 
                                                 class="form-control mobile-optimized-input bg-white w-100" 
                                                 name="width" 
-                                                value="1" 
-                                                min="1">
+                                                value="3" 
+                                                min="3">
                                         </div>
                                     </div>
                                     <!-- Height Column -->
@@ -169,16 +169,19 @@ https://templatemo.com/tm-560-astro-motion
                                                 inputmode="decimal" 
                                                 class="form-control mobile-optimized-input bg-white w-100" 
                                                 name="height" 
-                                                value="1" 
-                                                min="1">
+                                                value="3" 
+                                                min="3">
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
+                            <!-- MATCHED CONTAINER FOR ERROR VALIDATION ALERT TEXT -->
+                            <div id="size-warning-box" class="text-danger small fw-bold mb-3" style="display: none;"></div>
+
                             <div class="form-group mb-3">
-                                <label class="form-label-header">Quantity Sticker <span class="text-muted small fw-normal">(Min: 1)</span></label>
-                                <input type="number" class="form-control bg-white" name="quantity" value="1" min="1">
+                                <label class="form-label-header">Quantity Sticker <span class="text-muted small fw-normal">(Min: 50)</span></label>
+                                <input type="number" class="form-control bg-white" name="quantity" value="50" min="50">
                             </div>
 
                             <div class="form-group mb-3">
@@ -206,6 +209,7 @@ https://templatemo.com/tm-560-astro-motion
                                     <option value="transparent">Transparent (Non-Waterproof)</option>
                                     <option value="glossy">Glossy (Semi-Waterproof)</option>
                                     <option value="matte">Matte (Semi-Waterproof)</option>
+                                    <option value="ppwhite">PP White (Waterproof)</option>
                                 </select>
                             </div>
 
@@ -321,36 +325,91 @@ document.addEventListener("DOMContentLoaded", function () {
     function calculateStickerPrice() {
         const width = parseFloat(form.elements["width"].value) || 0;
         const height = parseFloat(form.elements["height"].value) || 0;
-        const quantity = parseInt(form.elements["quantity"].value) || 0;
-        const selectedMaterial = form.elements["material"].value;
+        const quantity = parseInt(form.elements["quantity"]?.value) || 0;
+        const selectedMaterial = form.elements["material"]?.value || "simili";
 
+        // Always target the active element container safely
+        const priceDisplay = document.getElementById("dynamic-total-price")
+        const warningBox = document.getElementById("size-warning-box");
+
+        /*// Safety fallback checks
         if (width <= 0 || height <= 0 || quantity <= 0) {
-            document.getElementById("dynamic-total-price").textContent = "0.00";
+            if (priceDisplay && priceDisplay.closest(".fs-3")) {
+                priceDisplay.closest(".fs-3").innerHTML = `RM <span id="dynamic-total-price">0.00</span>`;
+            }
+            if (warningBox) warningBox.style.display = "none";
             return;
         }
 
-        // 1. RECTANGLE TO SQUARE BOUNDING CONCEPT
-        // Find the maximum value to isolate layout limits
+        // 1. ENFORCE STICKER MIN LIMITATION RULE (Matched Banner/Bunting Format)
+        if (width < 3 || height < 3) {
+            if (warningBox) {
+                warningBox.textContent = "⚠️ Sticker dimensions cannot be below 3cm.";
+                warningBox.style.display = "block";
+            }
+            if (priceDisplay && priceDisplay.closest(".fs-3")) {
+                priceDisplay.closest(".fs-3").innerHTML = `<span id="dynamic-total-price" style="font-size: 22px;">Size Not Valid</span>`;
+            }
+            return;
+        } else {
+            if (warningBox) warningBox.style.display = "none";
+        }*/
+
+        // 1. ENFORCE STICKER MIN SIZE LIMITATION RULE 
+        if (width > 0 && width < 3 || height > 0 && height < 3) {
+            if (warningBox) {
+                warningBox.textContent = "⚠️ Sticker dimensions cannot be below 3cm.";
+                warningBox.style.display = "block";
+            }
+            if (priceDisplay && priceDisplay.closest(".fs-3")) {
+                priceDisplay.closest(".fs-3").innerHTML = `<span id="dynamic-total-price" style="font-size: 22px;">Size Not Valid</span>`;
+            }
+            return;
+        }
+
+        // 2. ENFORCE STICKER MIN QUANTITY LIMITATION RULE
+        if (quantity > 0 && quantity < 50) {
+            if (warningBox) {
+                warningBox.textContent = "⚠️ Sticker minimum order quantity is 50 pieces.";
+                warningBox.style.display = "block";
+            }
+            if (priceDisplay && priceDisplay.closest(".fs-3")) {
+                priceDisplay.closest(".fs-3").innerHTML = `<span id="dynamic-total-price" style="font-size: 22px;">Quantity Not Valid</span>`;
+            }
+            return;
+        }
+
+        // Clear warning display if all validation filters pass successfully
+        if (warningBox) warningBox.style.display = "none";
+
+        // Safety fallback checks for zero values
+        if (width <= 0 || height <= 0 || quantity <= 0) {
+            if (priceDisplay && priceDisplay.closest(".fs-3")) {
+                priceDisplay.closest(".fs-3").innerHTML = `RM <span id="dynamic-total-price">0.00</span>`;
+            }
+            return;
+        }
+        
+        // 2. RECTANGLE TO SQUARE BOUNDING CONCEPT
         const targetDimension = Math.max(width, height);
 
-        // 2. FIND CORRESPONDING FLYER BRACKET (3cm to 7cm)
+        // 3. FIND CORRESPONDING FLYER BRACKET (3cm to 7cm)
         let matchedCm = 3;
         if (targetDimension <= 3) matchedCm = 3;
         else if (targetDimension <= 4) matchedCm = 4;
         else if (targetDimension <= 5) matchedCm = 5;
         else if (targetDimension <= 6) matchedCm = 6;
-        else matchedCm = 7; // Lock onto 7cm rate array if larger
+        else matchedCm = 7; 
 
-        // 3. MAP THE HTML MATERIAL DROPDOWN VALUE
+        // 4. MAP THE HTML MATERIAL DROPDOWN VALUE
         let materialGroup = "simili";
         if (selectedMaterial === "mirrorkote") {
             materialGroup = "coated";
-        } else if (["transparent", "glossy", "matte"].includes(selectedMaterial)) {
+        } else if (["transparent", "glossy", "matte" , "ppwhite"].includes(selectedMaterial)) {
             materialGroup = "premium";
         }
 
-        // 4. CHOOSE QUANTITY TIER BRACKET ACCORDING TO YOUR RULE
-        // Note: For 4cm-7cm flyers, the lowest tier says 10pcs but matches your 20pcs calculation rule
+        // 5. CHOOSE QUANTITY TIER BRACKET ACCORDING TO YOUR RULE
         let activeTierName;
         if (quantity <= 20) activeTierName = "tier20";
         else if (quantity <= 50) activeTierName = "tier50";
@@ -360,25 +419,25 @@ document.addEventListener("DOMContentLoaded", function () {
         // Extract base unit price from active flyer matrix data
         const basePricePerPiece = flyerPricing[matchedCm][activeTierName][materialGroup];
 
-        // 5. SAFETY FALLBACK FOR OVER-SIZED ITEMS (> 7cm)
-        // If size is larger than 7cm, scale the price proportionally up based on area
+        // 6. SAFETY FALLBACK FOR OVER-SIZED ITEMS (> 7cm)
         let finalPricePerPiece = basePricePerPiece;
         if (targetDimension > 7) {
             const userArea = targetDimension * targetDimension;
-            const flyerMaxArea = 49; // 7cm x 7cm
+            const flyerMaxArea = 49; 
             finalPricePerPiece = basePricePerPiece * (userArea / flyerMaxArea);
         }
 
-        // 6. COMPUTE GRAND TOTAL
+        // 7. COMPUTE GRAND TOTAL
         let grandTotal = finalPricePerPiece * quantity;
 
-        // Apply a safe global minimum order floor matching your smallest flyer baseline price
         if (grandTotal < 5.00) {
             grandTotal = 5.00;
         }
 
-        // Output final clean layout string to frontend card
-        document.getElementById("dynamic-total-price").textContent = grandTotal.toFixed(2);
+        // Output final clean layout string matching banner design structure
+        if (priceDisplay && priceDisplay.closest(".fs-3")) {
+            priceDisplay.closest(".fs-3").innerHTML = `RM <span id="dynamic-total-price">${grandTotal.toFixed(2)}</span>`;
+        }
     }
 
     form.addEventListener("input", calculateStickerPrice);
@@ -386,6 +445,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     calculateStickerPrice();
 });
+
 </script>
 
 <script>
