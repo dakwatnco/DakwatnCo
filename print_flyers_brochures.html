@@ -166,15 +166,17 @@ https://templatemo.com/tm-560-astro-motion
                             <div class="form-group mb-3">
                                 <label class="form-label-header">Material</label>
                                 <select class="form-select custom-dropdown bg-white" name="material">
-                                    <option value="simili">Simili</option>
-                                    <option value="artpaper">Artpaper</option>
+                                    <option value="simili">Simili (70gsm)</option>
+                                    <option value="artpaper">Artpaper (157gsm)</option>
                                 </select>
                             </div>
 
                             <div class="form-group mb-3">
-                                <label class="form-label-header">Quantity <span class="text-muted small fw-normal">(Min: 1)</span></label>
-                                <input type="number" class="form-control bg-white" name="quantity" value="1" min="1">
+                                <label class="form-label-header">Quantity <span class="text-muted small fw-normal">(Min: 100)</span></label>
+                                <input type="number" class="form-control bg-white" name="quantity" value="100" min="100">
                             </div>
+
+                            <div id="size-warning-box" class="text-danger small fw-bold mb-3" style="display: none;"></div>
 
                             <div class="price-summary-box p-3 mb-4 border-start border-danger border-3 rounded-2">
                                 <div class="d-flex justify-content-between align-items-center">
@@ -257,35 +259,58 @@ document.addEventListener("DOMContentLoaded", function () {
         const selectedMaterial = form.elements["material"].value;
         const quantity = parseInt(form.elements["quantity"].value) || 0;
 
+        // Correctly defined targets at the start to prevent code crashes
+        const warningBox = document.getElementById("size-warning-box");
         const priceDisplay = document.getElementById("dynamic-total-price");
         if (!priceDisplay) return;
 
-        // Safety fallback: if quantity is 0 or negative, keep it at 0.00
-        if (quantity <= 0) {
-            priceDisplay.textContent = "0.00";
+        // 1. ENFORCE MINIMUM QUANTITY LIMITATION RULE (Min: 100)
+        if (quantity > 0 && quantity < 100) {
+            if (warningBox) {
+                warningBox.textContent = "⚠️ Flyer & Brochure minimum order quantity is 100 pieces.";
+                warningBox.style.display = "block";
+            }
+            if (priceDisplay.closest(".fs-3")) {
+                priceDisplay.closest(".fs-3").innerHTML = `<span id="dynamic-total-price" style="font-size: 22px;">Quantity Not Valid</span>`;
+            }
             return;
         }
 
-        // 1. Base unit prices matrix (1 Sided rates)
+        // Clear active warnings if validation checks pass smoothly
+        if (warningBox) warningBox.style.display = "none";
+
+        // Safety fallback checks for zero/empty inputs
+        if (!selectedSize || quantity <= 0) {
+            if (priceDisplay.closest(".fs-3")) {
+                priceDisplay.closest(".fs-3").innerHTML = `RM <span id="dynamic-total-price">0.00</span>`;
+            }
+            return;
+        }
+
+        // 2. Base unit prices matrix (1 Sided rates)
         const pricingMatrix = {
             "A6": { simili: 0.60, artpaper: 0.80 },
             "A5": { simili: 0.70, artpaper: 1.00 },
             "A4": { simili: 0.80, artpaper: 1.20 }
         };
 
-        // 2. Extract the price based on user selection
+        // 3. Extract the price based on user selection
         let basePricePerPiece = pricingMatrix[selectedSize][selectedMaterial];
 
-        // 3. Double the price if 2 Sided is chosen
+        // 4. Double the price if 2 Sided is chosen
         if (selectedSided === "2") {
             basePricePerPiece = basePricePerPiece * 2;
         }
 
-        // 4. Calculate total cost
+        // 5. Calculate total cost
         const grandTotal = basePricePerPiece * quantity;
 
-        // Output final formatted string back to the HTML card element
-        priceDisplay.textContent = grandTotal.toFixed(2);
+        // Output final formatted string back to the HTML card element matching your summary container
+        if (priceDisplay.closest(".fs-3")) {
+            priceDisplay.closest(".fs-3").innerHTML = `RM <span id="dynamic-total-price">${grandTotal.toFixed(2)}</span>`;
+        } else {
+            priceDisplay.textContent = grandTotal.toFixed(2);
+        }
     }
 
     // Recalculate live when user inputs numbers or switches options
