@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dakwat | Staff Dashboard </title>
+    <link rel="icon" href="img/Logo Dakwat Small.webp" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/slick.css" type="text/css" /> 
+    <link rel="stylesheet" href="css/templatemo-style.css">
+
+      <link rel="stylesheet" href="https://jsdelivr.net">
+  
+    <!-- Include Firebase SDKs -->
+    <script src="https://gstatic.com"></script>
+    <script src="https://gstatic.com"></script>
+
+  <style>
+    .border-dashed {
+      border-style: dashed !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <video autoplay muted loop id="bg-video">
+      <source src="video/gfp-astro-timelapse.mp4" type="video/mp4">
+  </video>
+
+  <div class="page-container">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="cd-slider-nav">
+            <nav class="navbar navbar-expand-xl" id="tm-nav">
+              <img class="logo-top" src="img/OFFICIAL LOGO CHROME.png">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-supported-content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar-supported-content">
+                  <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link" href="index.html" data-no="1">Home</a>
+                      <div class="circle"></div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="3D.html" data-no="2">3D</a>
+                      <div class="circle"></div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="photography.html" data-no="3">Photography</a>
+                      <div class="circle"></div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="web&app.html" data-no="4">Website & App</a>
+                      <div class="circle"></div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="printing.html" data-no="5">Printing</a>
+                      <div class="circle"></div>
+                    </li>
+                    <li class="nav-item selected">
+                      <a class="nav-link" href="About Us.html" data-no="6">About Us</a>
+                      <div class="circle"></div>
+                    </li>
+                  </ul>
+                </div>
+            </nav>
+          </div>
+        </div>          
+      </div>        
+    </div>
+
+    <div class="container-fluid tm-content-container">
+
+      <div class="d-flex position-relative tm-border-bottom intro-container text-center">
+        <div class="row justify-content-center fade-slide-down">
+
+          <div class="col-lg-12 hero-text">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12 hero-text">
+                  <div class="order-config-card p-4 shadow-sm text-dark rounded-4 bg-white">
+                    <h1 class="fontbebas mb-4 text-dark" style="font-size: 38px;">Staff Dashboard: Order Control</h1>
+
+                    <!-- Container holding editable orders from Firebase -->
+                    <div id="staffOrderList" class="d-flex flex-column gap-3 mb-4">
+                      <div class="text-center text-muted py-3">Loading control board...</div>
+                    </div>
+
+                    <!-- Plus Button to add a new fresh row -->
+                    <div class="d-grid mt-3">
+                      <button class="btn btn-outline-dark border-dashed py-2 rounded-4 fw-bold" id="addNewOrderBtn">
+                        <span class="fs-5 me-1">＋</span> Add New Order
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-nav">
+      <div class="row">
+        <div class="col-lg-2 l20">
+          <img class="logo-bottom" src="img/OFFICIAL LOGO CHROME.png"> <br>
+        </div>
+        <div class="col-lg-4 col-md-12 col-12 l20">
+          <h5><b>Dakwat Space Services (JR0183180-V)</b></h5>
+          <p style="font-size: medium;">No.38-2 , Jalan Dataran Suria 15/8, 2, Seksyen 15,<br> 42300 Puncak Alam, Selangor <br>
+          014 580 0098
+          </p>
+        </div>
+        <div class="col-lg-3 col-12 l20 m20">
+          <h5><b>NAVIGATION</b></h5>
+            <a href="index.html">Home</a><br>
+            <a href="web&app.html">Website & App</a><br>
+            <a href="3D.html">3D</a><br>
+            <a href="photography.html">Photography</a><br>
+            <a href="printing.html">Printing</a><br>
+        </div>
+        <div class="col-lg-3 col-12 l20 m20">
+          <h5><b>GET TO KNOW US</b></h5>
+            <a href="https://wa.me/60145800098">WhatsApp</a><br>
+            <a href="https://www.tiktok.com/@dakwatnco?_t=ZS-8yhL9Rgb68e&_r=1">Tik Tok</a><br>
+            <a href="https://www.instagram.com/dakwatnco?igsh=MTl2ZWFqaG5uYnRlbQ==">Instagram </a><br>
+            <a href="https://www.facebook.com/share/17CohqrQ2g/">Facebook</a>
+        </div>
+      </div>
+      <div class="row">
+        <center>
+        <div class="col-md-6 px-0" style="font-size: small;">
+          Copyright 2026 Dakwat Space Services. All rights reserved.
+        </div>
+        </center>
+      </div>
+    </div>
+    </footer>
+  
+<!-- Preloader, https://ihatetomatoes.net/create-custom-preloading-screen/ -->
+<div id="loader-wrapper">            
+  <div id="loader"></div>
+  <div class="loader-section section-left"></div>
+  <div class="loader-section section-right"></div>
+</div> 
+
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/slick.js"></script>
+<script src="js/templatemo-script.js"></script>
+
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+  import { getDatabase, ref, onValue, push, set, update, remove }
+  from "https://www.gstatic.com/firebasejs/12.19.0/firebase-database.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyC6Laa9uAGqUPYPVaAKLeapG-8Ug-Qbh6A",
+    authDomain: "order-tracking-c30b6.firebaseapp.com",
+    databaseURL: "https://order-tracking-c30b6-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "order-tracking-c30b6",
+    storageBucket: "order-tracking-c30b6.firebasestorage.app",
+    messagingSenderId: "1080839508794",
+    appId: "1:1080839508794:web:1109c20b6bbe4d8d823603",
+    measurementId: "G-40K22S0FC4"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+<script>
+
+    // Variable to track which item ID we just added, so we can focus on it
+    let newlyAddedOrderId = null;
+
+    // 3. Listen to Firebase and Render the List Dynamically
+      const ordersRef = ref(database, 'orders').on('value', (snapshot) => {
+      const staffOrderList = document.getElementById('staffOrderList');
+      
+      // Save info about what the staff is currently doing so the re-render doesn't interrupt typing
+      const activeElement = document.activeElement;
+      const activeId = activeElement ? activeElement.id : null;
+      const selectionStart = activeElement ? activeElement.selectionStart : null;
+
+      staffOrderList.innerHTML = '';
+
+      // If database is empty
+      if (!snapshot.exists()) {
+        staffOrderList.innerHTML = '<div class="text-center text-muted py-3">No active orders. Click the button below to add one.</div>';
+      }
+
+      snapshot.forEach((childSnapshot) => {
+        const orderId = childSnapshot.key;
+        const orderData = childSnapshot.val();
+
+        // Check if the current order is marked as ready or making to apply colors
+        const isReady = orderData.status === 'ready';
+
+       const rowHtml = `
+          <div class="order-management-row d-flex flex-wrap justify-content-between align-items-center pb-3 border-bottom gap-2" id="row-${orderId}">
+            <!-- Input Text Box for Customer ID -->
+            <div class="d-flex align-items-center gap-2 flex-grow-1" style="max-width: 300px;">
+              <span class="text-muted fw-bold text-nowrap">Customer ID :</span>
+              <input type="text" id="input-${orderId}" class="form-control form-control-sm fw-semibold text-dark cust-input" 
+                     value="${orderData.customerID || ''}" placeholder="e.g. cust 0001">
+            </div>
+            
+            <!-- Controls for changing status and updating/deleting -->
+            <div class="d-flex align-items-center gap-3">
+              <div class="d-flex align-items-center gap-2">
+                <span class="text-muted fw-bold text-nowrap">Status:</span>
+                <select id="select-${orderId}" class="form-select form-select-sm fw-semibold status-select rounded-pill px-3 ${isReady ? 'bg-success-subtle text-success-emphasis border-success-subtle' : 'bg-warning-subtle text-warning-emphasis border-warning-subtle'}" onchange="changeSelectColor(this)">
+                  <option value="making" ${orderData.status === 'making' ? 'selected' : ''}>In the Making</option>
+                  <option value="ready" ${isReady ? 'selected' : ''}>Ready to Pickup</option>
+                </select>
+              </div>
+              
+              <!-- Update Button to push data to Firebase -->
+              <button class="btn btn-sm btn-dark px-3 rounded-pill" onclick="updateOrder('${orderId}')">
+                <i class="bi bi-pencil-square me-1"></i> Update
+              </button>
+
+              <!-- Delete Button -->
+              <button class="btn btn-sm btn-outline-danger rounded-pill" onclick="deleteOrder('${orderId}')">✕</button>
+            </div>
+          </div>
+        `;
+        staffOrderList.insertAdjacentHTML('beforeend', rowHtml);
+      });
+
+      // Fix: If a brand-new row was added, instantly put the cursor in it
+      if (newlyAddedOrderId) {
+        const newInp = document.getElementById(`input-${newlyAddedOrderId}`);
+        if (newInp) {
+          newInp.focus();
+          newlyAddedOrderId = null; // reset tracker
+          return;
+        }
+      }
+
+      // Fix: Keep cursor position stable if staff was already editing an existing text field
+      if (activeId) {
+        const currentActiveEl = document.getElementById(activeId);
+        if (currentActiveEl) {
+          currentActiveEl.focus();
+          if (selectionStart !== null && currentActiveEl.setSelectionRange) {
+            currentActiveEl.setSelectionRange(selectionStart, selectionStart);
+          }
+        }
+      }
+    });
+
+    // 4. Action: Add New Blank Order Row
+    document.getElementById('addNewOrderBtn').addEventListener('click', () => {
+      const newOrderRef = database.ref('orders').push();
+      newlyAddedOrderId = newOrderRef.key; // Grab the unique key assigned by Firebase
+      
+      newOrderRef.set({
+        customerID: "", // Keeps the input entirely blank
+        status: "making"  // Starts off as 'In the Making'
+      });
+    });
+
+    // 5. Action: Update Details to Firebase
+    function updateOrder(orderId) {
+      const nameInput = document.getElementById(`input-${orderId}`).value;
+      const statusSelect = document.getElementById(`select-${orderId}`).value;
+
+      database.ref('orders/' + orderId).update({
+        customerID: nameInput,
+        status: statusSelect
+      }).then(() => {
+        alert("Order updated successfully!");
+      }).catch((error) => {
+        console.error("Firebase update failed: ", error);
+      });
+    }
+
+    // 6. Action: Delete Row Completely
+    function deleteOrder(orderId) {
+      if (confirm("Are you sure you want to remove this order?")) {
+        database.ref('orders/' + orderId).remove();
+      }
+    }
+
+    // Utility: Change the background color pill immediately when staff selects a different option
+    function changeSelectColor(selectElement) {
+      if (selectElement.value === 'ready') {
+        selectElement.className = "form-select form-select-sm fw-semibold status-select rounded-pill px-3 bg-success-subtle text-success-emphasis border-success-subtle";
+      } else {
+        selectElement.className = "form-select form-select-sm fw-semibold status-select rounded-pill px-3 bg-warning-subtle text-warning-emphasis border-warning-subtle";
+      }
+    }
+</script>
+
+</body>
+</html>
