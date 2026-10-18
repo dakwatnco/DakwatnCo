@@ -153,10 +153,12 @@ https://templatemo.com/tm-560-astro-motion
 
                 <!-- Row 2 -->
                 <div class="col-xl-2 col-md-4 col-6 mb-4">
-                  <div class="service-card">
-                    <img src="img/Printing/Thumbnail/thumbnail MONEY POCKET.webp" alt="Money Pocket" class="img-fluid service-img">
-                    <p class="service-label">Money Pocket</p>
-                  </div>
+                  <a href="print_money_pocket.html" target="_blank">
+                    <div class="service-card">
+                      <img src="img/Printing/Thumbnail/thumbnail MONEY POCKET.webp" alt="Money Pocket" class="img-fluid service-img">
+                      <p class="service-label">Money Pocket</p>
+                    </div>
+                  </a>
                 </div>
                 <div class="col-xl-2 col-md-4 col-6 mb-4">
                   <div class="service-card">
@@ -267,6 +269,68 @@ https://templatemo.com/tm-560-astro-motion
                 </div>
               </div>
 
+              <!--<div class="col-lg-12 hero-text">
+                <div class="order-config-card p-4 shadow-sm text-dark rounded-4">
+                  <h1 class="fontbebas mb-1 text-dark" style="font-size: 38px;">Track Your Order</h1>
+                    <div class="form-group mb-3">
+                      <label class="form-label-header">Customer ID</label>
+                      <label class=""></label>
+                    </div>
+                    <div class="form-group mb-3">
+                      <label class="form-label-header">Status</label>
+                    </div>
+                </div>
+              </div>-->
+
+              <!-- class="col-lg-12 hero-text">
+                <div class="order-config-card p-4 shadow-sm text-dark rounded-4 bg-white">
+                  <h1 class="fontbebas mb-4 text-dark" style="font-size: 38px;">Live Order Tracking</h1>
+
+                  <!-  This container will hold all the live orders - >
+                  <div id="orderTrackingList" class="d-flex flex-column gap-3">
+                    
+                    <div class="order-row d-flex justify-content-between align-items-center pb-3 border-bottom" data-status="ready">
+                      <div class="d-flex align-items-center gap-2">
+                        <span class="text-muted fw-bold">Customer ID :</span>
+                        <span class="fw-semibold text-dark">cust 0001</span>
+                      </div>
+                      <div class="d-flex align-items-center gap-2">
+                        <span class="text-muted fw-bold">Status:</span>
+                        <span class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle">
+                          <span class="fw-semibold">Ready to Pickup</span>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="order-row d-flex justify-content-between align-items-center pb-3 border-bottom" data-status="making">
+                      <div class="d-flex align-items-center gap-2">
+                        <span class="text-muted fw-bold">Customer ID :</span>
+                        <span class="fw-semibold text-dark">cust 0002</span>
+                      </div>
+                      <div class="d-flex align-items-center gap-2">
+                        <span class="text-muted fw-bold">Status:</span>
+                        <span class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-warning-subtle text-warning-emphasis border border-warning-subtle">
+                          <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" style="width: 0.7rem; height: 0.7rem;"></span>
+                          <span class="fw-semibold">In the Making</span>
+                        </span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>-->
+
+              <div class="col-lg-12 hero-text">
+                <div class="order-config-card p-4 shadow-sm text-dark rounded-4 bg-white">
+                  <h1 class="fontbebas mb-4 text-dark" style="font-size: 38px;">Live Order Tracking</h1>
+
+                  <!-- This container will be dynamically filled by Firebase -->
+                  <div id="orderTrackingList" class="d-flex flex-column gap-3">
+                    <div class="text-center text-muted py-3">Loading live orders...</div>
+                  </div>
+                </div>
+              </div>
+
               <!-- Mascot and Slogan Footer Area -->
               <div class="row text-center mt-5">
                 <div class="col-12">
@@ -279,6 +343,8 @@ https://templatemo.com/tm-560-astro-motion
 
         </div>
       </div>
+
+
     </div>
 
   </div>
@@ -332,6 +398,79 @@ https://templatemo.com/tm-560-astro-motion
 <script src="js/bootstrap.min.js"></script>
 <script src="js/slick.js"></script>
 <script src="js/templatemo-script.js"></script>
+
+<!-- Include Firebase SDKs (using v10+ modular CDN compatibility layer for simplicity) -->
+<script src="https://gstatic.com"></script>
+<script src="https://gstatic.com"></script>
+
+<script>
+  // 1. Paste YOUR Firebase Config from Step 2 here
+  const firebaseConfig = {
+    apiKey: "AIzaSyC6Laa9uAGqUPYPVaAKLeapG-8Ug-Qbh6A",
+    authDomain: "order-tracking-c30b6.firebaseapp.com",
+    databaseURL: "https://order-tracking-c30b6-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "order-tracking-c30b6",
+    storageBucket: "order-tracking-c30b6.firebasestorage.app",
+    messagingSenderId: "1080839508794",
+    appId: "1:1080839508794:web:1109c20b6bbe4d8d823603"
+  };
+
+  // 2. Initialize Firebase
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+  // 3. Listen for changes in Realtime Database
+  database.ref('orders').on('value', (snapshot) => {
+    const orderListContainer = document.getElementById('orderTrackingList');
+    orderListContainer.innerHTML = ''; // Clear container
+
+    const orders = [];
+    
+    // Convert Firebase data into a workable array
+    snapshot.forEach((childSnapshot) => {
+      orders.push({
+        id: childSnapshot.key,
+        ...childSnapshot.val()
+      });
+    });
+
+    // Sort: 'ready' status comes before 'making' status
+    orders.sort((a, b) => {
+      if (a.status === 'ready' && b.status !== 'ready') return -1;
+      if (a.status !== 'ready' && b.status === 'ready') return 1;
+      return 0;
+    });
+
+    // If no orders exist
+    if (orders.length === 0) {
+      orderListContainer.innerHTML = '<div class="text-center text-muted py-3">No active orders right now.</div>';
+      return;
+    }
+
+    // Render sorted orders onto the screen
+    orders.forEach((order) => {
+      const isReady = order.status === 'ready';
+      
+      const orderHtml = `
+        <div class="order-row d-flex justify-content-between align-items-center pb-3 border-bottom">
+          <div class="d-flex align-items-center gap-2">
+            <span class="text-muted fw-bold">Customer ID :</span>
+            <span class="fw-semibold text-dark">${order.customerID || 'Unnamed'}</span>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <span class="text-muted fw-bold">Status:</span>
+            <span class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill ${isReady ? 'bg-success-subtle text-success-emphasis border border-success-subtle' : 'bg-warning-subtle text-warning-emphasis border border-warning-subtle'}">
+              ${!isReady ? '<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" style="width: 0.7rem; height: 0.7rem;"></span>' : ''}
+              <span class="fw-semibold">${isReady ? 'Ready to Pickup' : 'In the Making'}</span>
+            </span>
+          </div>
+        </div>
+      `;
+      orderListContainer.insertAdjacentHTML('beforeend', orderHtml);
+    });
+  });
+
+  
+</script>
 
 </body>
 </html>
